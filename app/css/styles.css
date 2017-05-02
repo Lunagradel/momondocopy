@@ -124,6 +124,19 @@ footer, .filter, .price-box, .info, .further-info-button, .payment-page .contain
     display: flex;
     justify-content: center;
     flex-direction: column; }
+  #register h3, #LoginContainer h3 {
+    text-align: center;
+    padding-bottom: 10px; }
+  #register input, #LoginContainer input {
+    height: 25px;
+    font-size: 15px;
+    font-family: "Josefin Sans", sans-serif;
+    border: solid 1px #B3E5FC; }
+
+#login, #submit {
+  text-align: center;
+  margin: 25px auto 0px;
+  padding: 4px; }
 
 * {
   margin: 0;

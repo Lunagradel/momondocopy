@@ -13,4 +13,19 @@
     justify-content: center;
     flex-direction: column;
   }
+  h3{
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  input{
+    height: 25px;
+    font-size: 15px;
+    font-family: $mainFont;
+    border: solid 1px $bordercolor;
+  }
+}
+#login, #submit{
+  text-align: center;
+  margin: 25px auto 0px;
+  padding: 4px;
 }
