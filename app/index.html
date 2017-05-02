@@ -10,8 +10,8 @@
   <body>
     <div id="search-bar">
       <div class="login">
-        <a href="">Login</a>
-        <a href="">Register</a>
+        <button class="btnLogin"href="">Login</button>
+        <button class="btnRegister"href="">Register</button>
       </div>
       <form class="" action="index.html" method="post">
         <div class="">
@@ -26,7 +26,7 @@
     </div>
     <div class="content">
       <!-- REGISTER IN  -->
-      <div id="register">
+      <div id="register" class="hidden">
         <h3>REGISTER</h3>
           <form class="register" action="index.html" method="post">
             First name:</br>
@@ -65,7 +65,7 @@
       </div>
       <!-- REGISTER OUT -->
       <!-- LOGIN IN -->
-      <div id="Login">
+      <div id="LoginContainer" class="hidden">
         <h3>LOGIN</h3>
         <form class="login">
           Email:
@@ -264,6 +264,13 @@
 
 
     });
+
+    $(".btnRegister").click(function () {
+      $("#register").toggleClass("hidden");
+    })
+    $(".btnLogin").click(function () {
+      $("#LoginContainer").toggleClass("hidden");
+    })
 
 
     $("#submit").click(function () {
