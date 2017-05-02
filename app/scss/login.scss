@@ -1,3 +1,13 @@
-#hidden{
-  display: none;
+#register, #LoginContainer{
+  padding: 25px;
+  position: fixed;
+  background-color: green;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  .register{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 }
