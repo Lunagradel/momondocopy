@@ -265,13 +265,23 @@
 
     });
 
+    // SHOW HIDE IN
+
     $(".btnRegister").click(function () {
       $("#register").toggleClass("hidden");
-    })
+      if (!$("#LoginContainer").hasClass("hidden")) {
+        $("#LoginContainer").toggleClass("hidden");
+      }
+    });
+    
     $(".btnLogin").click(function () {
       $("#LoginContainer").toggleClass("hidden");
-    })
+      if (!$("#register").hasClass("hidden")) {
+        $("#register").toggleClass("hidden");
+      }
+    });
 
+    // SHOW HIDE OUT
 
     $("#submit").click(function () {
       var sFirstName = $("input[name='firstName']").val(),
