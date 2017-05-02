@@ -116,10 +116,10 @@ footer, .filter, .price-box, .info, .further-info-button, .payment-page .contain
 #register, #LoginContainer {
   padding: 25px;
   position: fixed;
-  background-color: green;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: 1; }
+  z-index: 1;
+  top: 10%; }
   #register .register, #LoginContainer .register {
     display: flex;
     justify-content: center;
@@ -428,4 +428,5 @@ footer {
 .regular-button {
   background-color: #03A9F4 !important;
   color: #E1F5FE !important;
-  font-family: "Josefin Sans", sans-serif; }
+  font-family: "Josefin Sans", sans-serif;
+  cursor: pointer; }

@@ -1,10 +1,13 @@
 #register, #LoginContainer{
   padding: 25px;
   position: fixed;
-  background-color: green;
+  // background-color: $background;
+  // border-radius: 1%;
+  // @include box-shadow(3px, 3px, 10px, #888888, false);
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 1;
+  top: 10%;
   .register{
     display: flex;
     justify-content: center;

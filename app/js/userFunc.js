@@ -19,6 +19,9 @@ function loginChangeMarkup() {
 // SHOW HIDE IN
 
 $(".btnRegister").click(function () {
+  if (localStorage.getItem("isLoggedIn") == "true") {
+
+  }
   $("#register").toggleClass("hidden");
   if (!$("#LoginContainer").hasClass("hidden")) {
     $("#LoginContainer").toggleClass("hidden");
@@ -119,4 +122,9 @@ $("#login").click(function () {
     console.log(inputMail+" and stored "+mail);
     console.log(inputPass+" and stored "+pass);
   }
+})
+
+$(".btnUser").click(function () {
+
+
 })
