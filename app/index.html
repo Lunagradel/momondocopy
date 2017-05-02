@@ -25,6 +25,46 @@
       </form>
     </div>
     <div class="content">
+      <!-- REGISTER IN  -->
+      <div id="register">
+        <h3>REGISTER</h3>
+          <form class="register" action="index.html" method="post">
+            First name:</br>
+            <input type="text" name="firstName" value="" placeholder="John">
+            Last Name:</br>
+            <input type="text" name="lastName" value="" placeholder="Doe">
+            Email:</br>
+            <input type="email" name="mail" value="" placeholder="example@example.com">
+            Password:</br>
+            <input type="password" name="Password" value="">
+            Birthdate:</br>
+            <input type="date" name="Bday" value="">
+            <div class="gender">
+              <input type="radio" class="genderInput" name="gender" value="male" checked> Male
+              <input type="radio" class="genderInput" name="gender" value="female"> Female
+            </div>
+            Passport Number:</br>
+            <input type="number" name="Passport" value="" placeholder="">
+            Phone Number: </br>
+            <input type="number" name="Phone" value="" placeholder="Phone Nr">
+            Company Name: </br>
+            <input type="text" name="Company" value="" placeholder="Company Name">
+            <button type="button" id="submit" name="submit">Register</button>
+          </form>
+      </div>
+      <!-- REGISTER OUT -->
+      <!-- LOGIN IN -->
+      <div id="Login">
+        <h3>LOGIN</h3>
+        <form class="login">
+          Email:
+          <input type="email" name="loginMail" value="" placeholder="John@doe.com">
+          Password:
+          <input type="Password" name="loginPass" value="">
+          <button type="button" id="login" value="login" name="button">login</button>
+        </form>
+      </div>
+      <!-- LOGIN OUT -->
       <div class="previousFlights">
         <div class="prevFlight card" data-flight-destination="xx">
           <div class="destinations">
@@ -213,6 +253,64 @@
 
 
     });
+
+
+    $("#submit").click(function () {
+      var sFirstName = $("input[name='firstName']").val(),
+      sLastname = $("input[name='lastName']").val(),
+      sMail = $("input[name='mail']").val(),
+      sPassword = $("input[name='Password']").val(),
+      sBday = $("input[name='Bday']").val(),
+      sGender = $(".gender").find("input:checked").val(),
+      sPassport = $("input[name='Passport']").val(),
+      sPhone = $("input[name='Phone']").val(),
+      sCompany = $("input[name='Company']").val();
+
+      var userjson =  {"user": {
+                          "credentials": {
+                            "firstName": sFirstName,
+                            "lastName": sLastname,
+                            "email": sMail,
+                            "sPassword": sPassword,
+                            "bday": sBday,
+                            "title": sGender,
+                            "PassNr": sPassport,
+                            "phone": sPhone,
+                            "CompanyName": sCompany,
+                            "creditCard": {
+                              "cardNr": 89142894712,
+                              "exMnth": 12,
+                              "exDay": 23,
+                              "cardHolder": sFirstName+" "+sLastname
+                              }
+                             }
+                            }
+                          }
+
+      // var data = JSON.stringify( $(".register").serializeArray());
+      var data = JSON.stringify(userjson);
+
+      localStorage.setItem("user", data);
+
+    })
+    $("#login").click(function () {
+      var formData = $.parseJSON(localStorage.user),
+          mail = formData[2].value,
+          pass = formData[3].value,
+          inputMail = $("input[name='loginMail']").val(),
+          inputPass = $("input[name='loginPass']").val();
+
+      // console.log(mail+" and the password: "+pass);
+
+      if ((inputMail == mail) && (inputPass == pass)) {
+        console.log("ITS A MIRCALE");
+
+      }else {
+        console.log("Its not a miracle");
+        console.log(inputMail+" and stored "+mail);
+        console.log(inputPass+" and stored "+pass);
+      }
+    })
     </script>
   </body>
 </html>
