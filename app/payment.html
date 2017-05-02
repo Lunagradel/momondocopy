@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Payment</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body class="payment-page">
+    <div class="container">
+
+        <div class="center-box">
+
+            <div class="row">
+                <input type="radio" name="" value=""> Creditcard
+                <input type="radio" name="" value=""> Paypal
+            </div>
+
+            <div class="row">
+                <input class="cardholder-name" type="text" name="" value="" placeholder="Cardholder Name">
+            </div>
+            <div class="row">
+                <input class="card-number" type="text" name="" value="" placeholder="Card Number">
+            </div>
+            <div class="wrap-row">
+                <div class="small-item">
+                    <input class="exp-month" type="text" name="" value="" placeholder="MM">
+                </div>
+                <div class="small-item">
+                    <input class="exp-year" type="text" name="" value="" placeholder="YY">
+                </div>
+                <div class="small-item">
+                    <input type="text" name="" value="" placeholder="CVC">
+                </div>
+            </div>
+            <div class="row center">
+                <button type="submit" name="button">Buy</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+      if (localStorage){
+        var userInfo = JSON.parse(localStorage.user);
+        var creditcardInfo = userInfo.user.credentials.creditCard;
+        console.log(creditcardInfo);
+        $(".cardholder-name").val(creditcardInfo.cardHolder)
+        $(".card-number").val(creditcardInfo.cardNr)
+        $(".exp-month").val(creditcardInfo.exMnth)
+        $(".exp-year").val(creditcardInfo.exDay)
+      }
+    })
+</script>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FlightSearch</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+  </head>
+  <body>
+    <div id="search-bar">
+      <div class="login">
+        <a href="">Login</a>
+        <a href="">Register</a>
+      </div>
+      <form class="" action="index.html" method="post">
+        <div class="">
+          <input class="from" type="text" name="from" value="" maxlength="10">
+          <input class="to" type="text" name="to" value="" maxlength="10">
+          <input type="date" name="fromDate" value="">
+          <input type="date" name="toDate" value="">
+          <input type="number" name="passengers" value="">
+        </div>
+        <button type="button" name="submit" id="goSearch">Go!</button>
+      </form>
+    </div>
+    <div class="content">
+      <div class="previousFlights">
+        <div class="prevFlight card" data-flight-destination="xx">
+          <div class="destinations">
+            <span class="prev-from">AMS</span> -> <span class="prev-to">CPH</span>
+          </div>
+          <div>
+            <input type="text">
+            <input type="text">
+            <button type="button" name="submit">Go!</button>
+          </div>
+        </div>
+        <div class="prevFlight card" data-flight-destination="xx">
+          <div class="destinations">BRN -> LND</div>
+          <div>
+            <input type="text">
+            <input type="text">
+            <button type="button" name="submit">Go!</button>
+          </div>
+        </div>
+      </div>
+      	<div class="search-result hidden">
+      		<div class="results">
+      			<div class="filters card">
+      				<div class="filter" id="quick"><p>Quickest</p></div>
+      				<div class="filter" id="cheap"><p>Cheapest</p></div>
+      				<div class="filter" id="best"><p>Best</p></div>
+      			</div>
+            <div class="search-card card">
+              <div class="result-box">
+        				<div class="flight-info">
+        					<div class="info">
+        						<p>11:45</p>
+        						<p class="result-from">CPH</p>
+        						<div class="line"></div>
+        						<p class="result-to">TLX</p>
+        						<p>12:50</p>
+        					</div>
+        					<div class="info">
+        						<p>08:00</p>
+        						<p class="result-to">TXL</p>
+        						<div class="line"></div>
+        						<p class="result-from">CPH</p>
+        						<p>09:05</p>
+        					</div>
+        				</div>
+
+        				<div class="price-box">
+        					<p>40 EUR</p>
+        					<button>BOOK NOW</button>
+        				</div>
+        			</div>
+        			<div class="further-info-button">
+        						<p>Further travel suggestions</p>
+        					</div>
+        			<div class="further-info-box">
+        				<div class="options">
+        					<p>Public transport</p>
+        					<div class="transport-info">
+        						<p>TXL</p>
+        						<div></div>
+        						<p>your adress..</p>
+        					</div>
+        				</div>
+        				<div class="options">
+        					<p>Taxi</p>
+        					<p>Approximately 20 min by taxi</p>
+        				</div>
+        			</div>
+            </div>
+
+
+      			<div class="result-box">
+      				<div class="flight-info">
+      					<div class="info">
+      						<p>13:45</p>
+      						<p class="result-from">CPH</p>
+      						<div class="line"></div>
+      						<p class="result-to">TLX</p>
+      						<p>14:50</p>
+      					</div>
+      					<div class="info">
+      						<p>10:00</p>
+      						<p class="result-to">TXL</p>
+      						<div class="line"></div>
+      						<p class="result-from">CPH</p>
+      						<p>11:05</p>
+      					</div>
+      				</div>
+      				<div class="price-box">
+      					<p>42 EUR</p>
+      					<button>BOOK NOW</button>
+      				</div>
+      			</div>
+      			<div class="further-info-button">
+      						<p>Further travel suggestions</p>
+      					</div>
+      			<div class="further-info-box">
+      				<div class="options">
+      					<p>Public transport</p>
+      					<div class="transport-info">
+      						<p>TXL</p>
+      						<div></div>
+      						<p>your adress..</p>
+      					</div>
+      				</div>
+      				<div class="options">
+      					<p>Taxi</p>
+      					<p>Approximately 20 min by taxi</p>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+    </div>
+    <footer>
+      <ul>
+        <li>Here</li>
+        <li>Is</li>
+        <li>The</li>
+        <li>Footer</li>
+        <li>....</li>
+      </ul>
+    </footer>
+    <script>
+
+      $(document).ready(function(){
+        var lastSearch = JSON.parse(localStorage.lastSearch);
+        $(".prev-from").empty();
+        $(".prev-from").append(lastSearch.from);
+
+        $(".prev-to").empty();
+        $(".prev-to").append(lastSearch.to);
+      });
+
+      $(".price-box > button").click(function(event) {
+        event.preventDefault();
+        window.location.href = 'payment.html';
+      });
+
+      var bSearched = false;
+
+      $("#goSearch").click(function (event) {
+        event.preventDefault();
+
+        var from = $(".from").val().toUpperCase();
+        var to = $(".to").val().toUpperCase();
+
+        if (from != "" && to != ""){
+          $(".search-result").removeClass("hidden");
+          $(".previousFlights").addClass("hidden");
+
+          $(".result-from").empty();
+          $(".result-from").append(from);
+
+          $(".result-to").empty();
+          $(".result-to").append(to);
+
+          localStorage.removeItem(lastSearch);
+
+          var lastSearch = {"from":from, "to":to};
+          localSearch = JSON.stringify(lastSearch);
+          localStorage.lastSearch = localSearch;
+
+          var userjson =  {"user": {
+                          		"credentials": {
+                          			"firstName": "bob",
+                          			"lastName": "Egon",
+                          			"email": "john@doe.com",
+                          			"bday": "1999-20-12",
+                          			"title": "Ms",
+                          			"PassNr": "983235523",
+                          			"phone": "123213",
+                          			"CompanyName": "Limited Incorporated A/S",
+                          			"creditCard": {
+                          				"cardNr": 89142894712,
+                          				"exMnth": 12,
+                          				"exDay": 23,
+                          				"cardHolder": "Bob Egon"
+                                  }
+  		                           }
+  	                            }
+                              }
+
+          localUser = JSON.stringify(userjson)
+          localStorage.user = localUser;
+        }
+
+
+    });
+    </script>
+  </body>
+</html>

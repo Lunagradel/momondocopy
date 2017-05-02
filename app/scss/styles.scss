@@ -1,0 +1,388 @@
+
+
+@import 'sass-flexbox.scss';
+@import "mixins.scss";
+@import "variables.scss";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+  background-color: $background;
+  min-height: 100%;
+  padding-bottom: 50px;
+  position: relative;
+	font-family: 'Josefin Sans', sans-serif;
+}
+.hidden{ display: none }
+#search-bar{
+  display: flex;
+  @include align-items(center);
+  flex-direction: column;
+  padding: 50px 0px;
+  div{
+    padding-bottom: 40px;
+  }
+  form{
+    display: flex;
+    @include align-items(center);
+    position: relative;
+    padding-right: 60px;
+    width: 75vw;
+    @include bp-mobile() {
+      flex-direction: column;
+      justify-content: center;
+    }
+    input{
+      border: solid 1px black;
+      margin: 0 5px;
+      height: 25px;
+      @include bp-mobile() {
+        margin: 2px 0px;
+      }
+    }
+    button{
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background-color: $blue;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-family: arial;
+      box-shadow: 0 0 2px #227270;
+      cursor: pointer;
+      position: absolute;
+      right: 0px;
+      @include transitionEase(all, 100ms);
+      &:hover{
+        height: 48px;
+        width: 48px;
+        right: 0px;
+      }
+    }
+  }
+}
+.previousFlights{
+  margin: 0 auto;
+  width: 75vw;
+  .prevFlight{
+    display: flex;
+    @include justify-content(space-around);
+    @include align-items(center);
+    padding: 15px;
+    margin: 15px 0;
+  }
+}
+a{
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: $blue;
+  padding: 10px 15px;
+  border-radius: 200px;
+  color: white;
+  box-shadow: 0 0 2px #227270;
+  margin: 0 5px;
+}
+
+footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  @include justify-content(center);
+  padding-top: 30px;
+  ul{
+    width: 100%;
+    @include justify-content(space-around);
+    display: flex;
+    flex-direction: row;
+    li{
+      list-style: none;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+///// Search results //////
+
+.search-result {
+	width: 100%;
+	@include display-flex;
+	@include justify-content(space-around);
+}
+
+.time-filters {
+	width: 15vw;
+	height: 100vh;
+	background-color: $blue;
+}
+.results {
+	width: 75vw;
+	height: auto;
+	@include display-flex;
+	@include flex-direction(column);
+}
+
+.filters {
+	width: 100%;
+	height: 50px;
+	@include display-flex;
+}
+
+.filter {
+	width: 25vw;
+	height: 100%;
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(center);
+
+	p {
+		font-size: 25px;
+		@include bp-mobile(){
+			font-size: 18px;
+		}
+	}
+}
+
+#cheap {
+	background-color: #BBDEFB;
+}
+
+.result-box {
+	width: 100%;
+	height: 300px;
+	@include display-flex();
+	@include bp-mobile() {
+		flex-direction: column;
+		height: 230px;
+	}
+}
+
+.flight-info {
+	width: 70%;
+	height: 300px;
+	@include display-flex;
+	@include flex-direction(column);
+	@include justify-content(space-around);
+
+	@include bp-mobile() {
+		width: 100%;
+		height: 120px;
+	}
+}
+
+.price-box {
+	width: 30%;
+	height: 300px;
+	@include display-flex;
+	@include flex-direction(column);
+	@include justify-content(center);
+	@include align-items(center);
+
+	button {
+		width: 150px;
+		height: 50px;
+		border: 2px solid black;
+		font-size: 15px;
+    cursor: pointer;
+		@include bp-mobile() {
+			font-size: 12px;
+			height: 30px;
+			width: 100px;
+		}
+	}
+
+	p {
+		font-size: 30px;
+		font-weight: bold;
+		padding-bottom: 20px;
+
+		@include bp-mobile() {
+			font-size: 22px;
+			padding-bottom: 5px;
+		}
+	}
+
+	@include bp-mobile() {
+		width: 100%;
+		height: 100px;
+	}
+
+}
+
+.info {
+	width: 100%;
+	height: 100px;
+
+	@include display-flex;
+	@include justify-content(center);
+	@include align-items(center);
+
+	p {
+		font-size: 30px;
+		padding: 10px;
+
+		@include bp-mobile(){
+			font-size: 20px;
+		}
+	}
+
+	@include bp-mobile(){
+		height: 50px;
+	}
+
+}
+
+.line {
+	width: 20px;
+	height: 3px;
+	background-color: black;
+}
+
+.further-info-button {
+	width: 100%;
+	height: 30px;
+	border-top: solid 1px #e9e9e9;
+	@include display-flex;
+	@include align-items(center);
+	padding-left: 10px;
+
+}
+
+.further-info-box {
+	height: 100px;
+	width: 100%;
+	padding-left: 10px;
+	@include display-flex;
+	@include flex-direction(column);
+	@include justify-content(space-around);
+}
+
+.transport-info {
+	@include display-flex;
+	@include align-items(center);
+
+
+	div {
+		width: 10px;
+		height: 3px;
+		background-color: black;
+		margin: 0px 7px 0px 7px;
+	}
+}
+
+//// PAYMENT /////
+
+.payment-page{
+  @mixin bp-mobile() {
+      @media only screen
+      and (max-width: 768px) {
+          @content;
+      }
+  }
+
+  @mixin bp-tablet() {
+      @media only screen
+      and (min-width: 768px)
+      and (max-width: 1024px)
+      and (orientation: portrait) {
+          @content;
+      }
+  }
+
+  * {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      @include box-sizing(border-box);
+  }
+
+  .container {
+      margin-top: 100px;
+      width: 100%;
+      height: 100vh;
+      @include display-flex();
+      @include justify-content(center);
+  }
+
+  .center-box {
+      @include display-flex();
+      @include justify-content(center);
+      @include flex-direction(column);
+      padding: 20px;
+      width: 40%;
+      @include bp-mobile() {
+          width: 90%;
+      };
+      @include bp-tablet() {
+          width: 70%;
+      };
+      height: 400px;
+      background-color: $neon;
+  }
+
+  input[type="text"] {
+      padding: 5px;
+      height: 35px;
+      font-size: 15px;
+      border-style: none;
+      border-radius: 3px;
+      width: 100%;
+  }
+
+  .row {
+      color: white;
+      padding: 5px;
+      min-height: 50px;
+      width: 100%;
+  }
+
+  .wrap-row {
+      @include display-flex();
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+      @include flex-direction(row);
+      padding: 5px;
+      width: 100%;
+  }
+
+  .small-item {
+      width: 31%;
+  }
+
+  .center {
+      @include display-flex();
+      @include justify-content(flex-end);
+  }
+
+  button {
+      width: 100px;
+      height: 50px;
+      border-style: none;
+      border-radius: 3px;
+      color: white;
+      font-size: 16px;
+      background-color: $orange;
+      margin-top: 20px;
+  }
+}
+
+.card {
+	background-color: #FFFFFF;
+	border-style: solid;
+  border-color: #e9e9e9;
+  border-bottom-color: #dfdfdf;
+  border-width: 1px 1px 2px 1px;
+}
+
+.search-card {
+		width: 100%;
+    margin-top: 15px;
+}

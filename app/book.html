@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>book your flight</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <input type="text" class="title" name="" value="" placeholder="Title">
+    <input type="text" class="name" name="" value="" placeholder="Name">
+    <input type="text" class="lastname" name="" value="" placeholder="Lastname">
+    <input type="text" class="email" name="" value="" placeholder="Email">
+    <input type="text" class="company" name="" value="" placeholder="Company">
+    <input type="text" class="birthday" name="" value="" placeholder="Birthday">
+    <input type="text" class="phone" name="" value="" placeholder="Phone">
+    <input type="text" class="passport" name="" value="" placeholder="Passport Number">
+    
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        if (localStorage){
+          var userInfo = JSON.parse(localStorage.user);
+          var user = userInfo.user.credentials;
+          console.log(user);
+          $(".title").val(user.title);
+          $(".name").val(user.firstName);
+          $(".lastname").val(user.lastName);
+          $(".email").val(user.email);
+          $(".company").val(user.CompanyName);
+          $(".birthday").val(user.bday);
+          $(".phone").val(user.phone);
+          $(".passport").val(user.PassNr);
+
+        }
+      });
+    </script>
+  </body>
+</html>

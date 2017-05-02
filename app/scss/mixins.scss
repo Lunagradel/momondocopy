@@ -1,0 +1,31 @@
+@mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    -ms-box-sizing: $type;
+    box-sizing: $type;
+}
+
+@mixin transitionEase($property, $duration) {
+  -webkit-transition: $property $duration ease;
+  -moz-transition: $property $duration ease;
+  -ms-transition: $property $duration ease;
+  -o-transition: $property $duration ease;
+  transition: $property $duration ease;
+}
+
+
+@mixin bp-mobile() {
+  @media only screen
+  and (max-width : 736px) {
+    @content;
+  }
+}
+
+@mixin bp-tablet() {
+  @media only screen
+  and (min-width : 768px)
+  and (max-width : 1024px)
+  and (orientation : portrait) {
+    @content;
+  }
+}

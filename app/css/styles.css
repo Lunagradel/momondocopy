@@ -1,0 +1,378 @@
+/**
+* SassFlexbox
+* Manage Flexbox in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+/*
+    Display
+ */
+.search-result, .results, .filters, .filter, .result-box, .flight-info, .price-box, .info, .further-info-button, .further-info-box, .transport-info, .payment-page .container, .payment-page .center-box, .payment-page .wrap-row, .payment-page .center {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+/*
+    Flex direction
+ */
+.payment-page .wrap-row {
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.results, .flight-info, .price-box, .further-info-box, .payment-page .center-box {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+/*
+    Flex wrap
+ */
+.payment-page .wrap-row {
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+/*
+    Flex flow
+ */
+/*
+    Order
+ */
+/*
+    Flex grow
+ */
+/*
+    Flex shrink
+ */
+/*
+    Flex basis
+ */
+/*
+    Flex
+ */
+/*
+    Justify content
+ */
+.payment-page .center {
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -webkit-flex-pack: end;
+  -ms-flex-pack: end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end; }
+
+footer, .filter, .price-box, .info, .payment-page .container, .payment-page .center-box {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-flex-pack: center;
+  -ms-flex-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+.payment-page .wrap-row {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-flex-pack: justify;
+  -ms-flex-pack: justify;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between; }
+
+.previousFlights .prevFlight, footer ul, .search-result, .flight-info, .further-info-box {
+  -moz-justify-content: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around; }
+
+/*
+    Align items
+ */
+#search-bar, #search-bar form, .previousFlights .prevFlight, .filter, .price-box, .info, .further-info-button, .transport-info {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+
+/*
+    Align self
+ */
+/*
+    Align content
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: #E1F5FE;
+  min-height: 100%;
+  padding-bottom: 50px;
+  position: relative;
+  font-family: 'Josefin Sans', sans-serif; }
+
+.hidden {
+  display: none; }
+
+#search-bar {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0px; }
+  #search-bar div {
+    padding-bottom: 40px; }
+  #search-bar form {
+    display: flex;
+    position: relative;
+    padding-right: 60px;
+    width: 75vw; }
+    @media only screen and (max-width: 736px) {
+      #search-bar form {
+        flex-direction: column;
+        justify-content: center; } }
+    #search-bar form input {
+      border: solid 1px black;
+      margin: 0 5px;
+      height: 25px; }
+      @media only screen and (max-width: 736px) {
+        #search-bar form input {
+          margin: 2px 0px; } }
+    #search-bar form button {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background-color: #3F51B5;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-family: arial;
+      box-shadow: 0 0 2px #227270;
+      cursor: pointer;
+      position: absolute;
+      right: 0px;
+      -webkit-transition: all 100ms ease;
+      -moz-transition: all 100ms ease;
+      -ms-transition: all 100ms ease;
+      -o-transition: all 100ms ease;
+      transition: all 100ms ease; }
+      #search-bar form button:hover {
+        height: 48px;
+        width: 48px;
+        right: 0px; }
+
+.previousFlights {
+  margin: 0 auto;
+  width: 75vw; }
+  .previousFlights .prevFlight {
+    display: flex;
+    padding: 15px;
+    margin: 15px 0; }
+
+a {
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #3F51B5;
+  padding: 10px 15px;
+  border-radius: 200px;
+  color: white;
+  box-shadow: 0 0 2px #227270;
+  margin: 0 5px; }
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding-top: 30px; }
+  footer ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row; }
+    footer ul li {
+      list-style: none;
+      text-transform: uppercase; }
+
+.search-result {
+  width: 100%; }
+
+.time-filters {
+  width: 15vw;
+  height: 100vh;
+  background-color: #3F51B5; }
+
+.results {
+  width: 75vw;
+  height: auto; }
+
+.filters {
+  width: 100%;
+  height: 50px; }
+
+.filter {
+  width: 25vw;
+  height: 100%; }
+  .filter p {
+    font-size: 25px; }
+    @media only screen and (max-width: 736px) {
+      .filter p {
+        font-size: 18px; } }
+
+#cheap {
+  background-color: #BBDEFB; }
+
+.result-box {
+  width: 100%;
+  height: 300px; }
+  @media only screen and (max-width: 736px) {
+    .result-box {
+      flex-direction: column;
+      height: 230px; } }
+
+.flight-info {
+  width: 70%;
+  height: 300px; }
+  @media only screen and (max-width: 736px) {
+    .flight-info {
+      width: 100%;
+      height: 120px; } }
+
+.price-box {
+  width: 30%;
+  height: 300px; }
+  .price-box button {
+    width: 150px;
+    height: 50px;
+    border: 2px solid black;
+    font-size: 15px;
+    cursor: pointer; }
+    @media only screen and (max-width: 736px) {
+      .price-box button {
+        font-size: 12px;
+        height: 30px;
+        width: 100px; } }
+  .price-box p {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 20px; }
+    @media only screen and (max-width: 736px) {
+      .price-box p {
+        font-size: 22px;
+        padding-bottom: 5px; } }
+  @media only screen and (max-width: 736px) {
+    .price-box {
+      width: 100%;
+      height: 100px; } }
+
+.info {
+  width: 100%;
+  height: 100px; }
+  .info p {
+    font-size: 30px;
+    padding: 10px; }
+    @media only screen and (max-width: 736px) {
+      .info p {
+        font-size: 20px; } }
+  @media only screen and (max-width: 736px) {
+    .info {
+      height: 50px; } }
+
+.line {
+  width: 20px;
+  height: 3px;
+  background-color: black; }
+
+.further-info-button {
+  width: 100%;
+  height: 30px;
+  border-top: solid 1px #e9e9e9;
+  padding-left: 10px; }
+
+.further-info-box {
+  height: 100px;
+  width: 100%;
+  padding-left: 10px; }
+
+.transport-info div {
+  width: 10px;
+  height: 3px;
+  background-color: black;
+  margin: 0px 7px 0px 7px; }
+
+.payment-page * {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+.payment-page .container {
+  margin-top: 100px;
+  width: 100%;
+  height: 100vh; }
+.payment-page .center-box {
+  padding: 20px;
+  width: 40%;
+  height: 400px;
+  background-color: #66BB6A; }
+  @media only screen and (max-width: 768px) {
+    .payment-page .center-box {
+      width: 90%; } }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .payment-page .center-box {
+      width: 70%; } }
+.payment-page input[type="text"] {
+  padding: 5px;
+  height: 35px;
+  font-size: 15px;
+  border-style: none;
+  border-radius: 3px;
+  width: 100%; }
+.payment-page .row {
+  color: white;
+  padding: 5px;
+  min-height: 50px;
+  width: 100%; }
+.payment-page .wrap-row {
+  padding: 5px;
+  width: 100%; }
+.payment-page .small-item {
+  width: 31%; }
+.payment-page button {
+  width: 100px;
+  height: 50px;
+  border-style: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 16px;
+  background-color: #FF5722;
+  margin-top: 20px; }
+
+.card {
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-color: #e9e9e9;
+  border-bottom-color: #dfdfdf;
+  border-width: 1px 1px 2px 1px; }
+
+.search-card {
+  width: 100%;
+  margin-top: 15px; }
+
+/*# sourceMappingURL=styles.css.map */
