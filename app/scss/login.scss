@@ -1,13 +1,31 @@
 #register, #LoginContainer{
   padding: 25px;
   position: fixed;
-  background-color: green;
+  // background-color: $background;
+  // border-radius: 1%;
+  // @include box-shadow(3px, 3px, 10px, #888888, false);
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 1;
+  top: 10%;
   .register{
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
+  h3{
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  input{
+    height: 25px;
+    font-size: 15px;
+    font-family: $mainFont;
+    border: solid 1px $bordercolor;
+  }
+}
+#login, #submit{
+  text-align: center;
+  margin: 25px auto 0px;
+  padding: 4px;
 }

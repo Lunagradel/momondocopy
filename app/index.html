@@ -7,6 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/sweetalert/dist/sweetalert.css">
   </head>
   <body>
     <div id="search-bar">
@@ -17,19 +19,22 @@
 
       <form class="" action="index.html" method="post">
         <div class="">
-          <input class="from" type="text" name="from" value="" maxlength="10">
-          <input class="to" type="text" name="to" value="">
+          <input class="from" type="text" name="from" value="Copenhagen" maxlength="10">
+          <i class="fa fa-arrows-h" aria-hidden="true"></i>
+          <input class="to" type="text" name="to" value="Berlin">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
           <input type="date" name="fromDate" value="">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
           <input type="date" name="toDate" value="">
-          <input type="number" name="passengers" value="">
-          <button class="regular-button" type="button" name="submit" id="goSearch">Go!</button>
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <input type="number" class="passengers" name="passengers" value="1">
         </div>
-
+        <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
       </form>
     </div>
     <div class="content">
       <!-- REGISTER IN  -->
-      <div id="register" class="hidden">
+      <div id="register" class="card hidden">
         <h3>REGISTER</h3>
           <form class="register" action="index.html" method="post">
             First name:</br>
@@ -63,19 +68,19 @@
               Cardholder Name:</br>
               <input type="text" name="cardHolder" value="" placeholder="John Doe">
             </div>
-            <button type="button" id="submit" name="submit">Register</button>
+            <div type="button" id="submit" class="regular-button" name="submit">Register</div>
           </form>
       </div>
       <!-- REGISTER OUT -->
       <!-- LOGIN IN -->
-      <div id="LoginContainer" class="hidden">
+      <div id="LoginContainer" class="card hidden">
         <h3>LOGIN</h3>
         <form class="login">
           Email:
           <input type="email" name="loginMail" value="" placeholder="John@doe.com">
           Password:
           <input type="Password" name="loginPass" value="">
-          <button type="button" id="login" value="login" name="button">login</button>
+          <div type="button" id="login" class="regular-button" value="login" name="button">login</div>
         </form>
       </div>
       <!-- LOGIN OUT -->
@@ -268,24 +273,6 @@
 
 
     });
-
-    // SHOW HIDE IN
-
-    $(".btnRegister").click(function () {
-      $("#register").toggleClass("hidden");
-      if (!$("#LoginContainer").hasClass("hidden")) {
-        $("#LoginContainer").toggleClass("hidden");
-      }
-    });
-
-    $(".btnLogin").click(function () {
-      $("#LoginContainer").toggleClass("hidden");
-      if (!$("#register").hasClass("hidden")) {
-        $("#register").toggleClass("hidden");
-      }
-    });
-
-    // SHOW HIDE OUT
     </script>
     <script src="js/userFunc.js" charset="utf-8"></script>
   </body>

@@ -116,14 +116,27 @@ footer, .filter, .price-box, .info, .further-info-button, .payment-page .contain
 #register, #LoginContainer {
   padding: 25px;
   position: fixed;
-  background-color: green;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: 1; }
+  z-index: 1;
+  top: 10%; }
   #register .register, #LoginContainer .register {
     display: flex;
     justify-content: center;
     flex-direction: column; }
+  #register h3, #LoginContainer h3 {
+    text-align: center;
+    padding-bottom: 10px; }
+  #register input, #LoginContainer input {
+    height: 25px;
+    font-size: 15px;
+    font-family: "Josefin Sans", sans-serif;
+    border: solid 1px #B3E5FC; }
+
+#login, #submit {
+  text-align: center;
+  margin: 25px auto 0px;
+  padding: 4px; }
 
 * {
   margin: 0;
@@ -136,6 +149,9 @@ body {
   padding-bottom: 50px;
   position: relative;
   font-family: "Josefin Sans", sans-serif; }
+
+.fa {
+  color: #3F51B5; }
 
 .hidden {
   display: none; }
@@ -158,8 +174,6 @@ body {
         flex-direction: column;
         justify-content: center; } }
     #search-bar form input {
-      border: solid 1px #E1F5FE;
-      background-color: #81D4FA;
       margin: 0 5px;
       height: 35px;
       width: 150px;
@@ -169,19 +183,32 @@ body {
       @media only screen and (max-width: 736px) {
         #search-bar form input {
           margin: 2px 0px; } }
+    #search-bar form .passengers {
+      width: 30px; }
     #search-bar form button {
       height: 35px;
       width: 80px;
       border: none;
       color: white;
       font-size: 20px;
-      box-shadow: 0 0 2px #227270;
       cursor: pointer;
+      position: absolute;
+      right: 0px;
+      -webkit-box-shadow: 0px 0px 4px #888888;
+      -moz-box-shadow: 0px 0px 4px #888888;
+      box-shadow: 0px 0px 4px #888888;
       -webkit-transition: all 100ms ease;
       -moz-transition: all 100ms ease;
       -ms-transition: all 100ms ease;
       -o-transition: all 100ms ease;
       transition: all 100ms ease; }
+      #search-bar form button .fa {
+        color: white;
+        margin-right: 2px; }
+      #search-bar form button:hover {
+        -webkit-box-shadow: 0px 0px 0px #888888;
+        -moz-box-shadow: 0px 0px 0px #888888;
+        box-shadow: 0px 0px 0px #888888; }
 
 .previousFlights {
   margin: 0 auto;
