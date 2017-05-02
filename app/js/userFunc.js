@@ -1,3 +1,51 @@
+$(document).ready(function () {
+  loginChangeMarkup();
+});
+
+
+function loginChangeMarkup() {
+  if (localStorage.getItem("isLoggedIn") == "true") {
+    var sUserDetails = "<button class='btnUser regular-button'>Account</button>"
+    $(".btnLogin").html("Logout");
+    $(".login").append(sUserDetails);
+  }else {
+
+    $(".btnLogin").html("Login");
+    $(".btnUser").remove();
+  }
+}
+
+
+// SHOW HIDE IN
+
+$(".btnRegister").click(function () {
+  $("#register").toggleClass("hidden");
+  if (!$("#LoginContainer").hasClass("hidden")) {
+    $("#LoginContainer").toggleClass("hidden");
+  }
+});
+
+$(".btnLogin").click(function () {
+  if (localStorage.getItem("isLoggedIn") == "true") {
+    localStorage.setItem("isLoggedIn", false);
+    loginChangeMarkup();
+    swal({
+      title: "Logout!",
+      text: "User has successfully been logged out",
+      timer: 1500,
+      showConfirmButton: false
+    });
+  }else {
+    $("#LoginContainer").toggleClass("hidden");
+    if (!$("#register").hasClass("hidden")) {
+      $("#register").toggleClass("hidden");
+    }
+  }
+});
+
+// SHOW HIDE OUT
+
+
 $("#submit").click(function () {
   var sFirstName = $("input[name='firstName']").val(),
   sLastname = $("input[name='lastName']").val(),
@@ -56,9 +104,6 @@ $("#login").click(function () {
       inputMail = $("input[name='loginMail']").val(),
       inputPass = $("input[name='loginPass']").val();
 
-  // console.log(mail+" and the password: "+pass);
-
-  localStorage.setItem("isLoggedIn", "true");
 
   if ((inputMail == mail) && (inputPass == pass)) {
     console.log("ITS A MIRCALE");
@@ -66,6 +111,8 @@ $("#login").click(function () {
     if (!$("#LoginContainer").hasClass("hidden")) {
       $("#LoginContainer").toggleClass("hidden");
     }
+    localStorage.setItem("isLoggedIn", "true");
+    loginChangeMarkup();
 
   }else {
     sweetAlert("Login failed", "Password and username did not match", "error");
