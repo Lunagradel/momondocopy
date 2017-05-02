@@ -10,9 +10,10 @@
   <body>
     <div id="search-bar">
       <div class="login">
-        <a href="" class="regular-button">Login</a>
-        <a href="" class="regular-button">Register</a>
+        <button class="btnLogin regular-button">Login</button>
+        <button class="btnRegister regular-button">Register</button>
       </div>
+
       <form class="" action="index.html" method="post">
         <div class="">
           <input class="from" type="text" name="from" value="" maxlength="10">
@@ -25,6 +26,57 @@
       </form>
     </div>
     <div class="content">
+      <!-- REGISTER IN  -->
+      <div id="register" class="hidden">
+        <h3>REGISTER</h3>
+          <form class="register" action="index.html" method="post">
+            First name:</br>
+            <input type="text" name="firstName" value="" placeholder="John">
+            Last Name:</br>
+            <input type="text" name="lastName" value="" placeholder="Doe">
+            Email:</br>
+            <input type="email" name="mail" value="" placeholder="example@example.com">
+            Password:</br>
+            <input type="password" name="Password" value="">
+            Birthdate:</br>
+            <input type="date" name="Bday" value="">
+            <div class="gender">
+              <input type="radio" class="genderInput" name="gender" value="male" checked> Male
+              <input type="radio" class="genderInput" name="gender" value="female"> Female
+            </div>
+            Passport Number:</br>
+            <input type="number" name="Passport" value="" placeholder="">
+            Phone Number: </br>
+            <input type="tel" name="Phone" value="" placeholder="Phone Nr">
+            Company Name: </br>
+            <input type="text" name="Company" value="" placeholder="Company Name">
+
+            <div id="creditCard">
+              Credit Card Number:</br>
+              <input type="number" name="cardNr" value="">
+              Expiration Year:</br>
+              <input type="number" name="exYear" value="">
+              Expiration Month:</br>
+              <input type="number" name="exMnth" value="">
+              Cardholder Name:</br>
+              <input type="text" name="cardHolder" value="" placeholder="John Doe">
+            </div>
+            <button type="button" id="submit" name="submit">Register</button>
+          </form>
+      </div>
+      <!-- REGISTER OUT -->
+      <!-- LOGIN IN -->
+      <div id="LoginContainer" class="hidden">
+        <h3>LOGIN</h3>
+        <form class="login">
+          Email:
+          <input type="email" name="loginMail" value="" placeholder="John@doe.com">
+          Password:
+          <input type="Password" name="loginPass" value="">
+          <button type="button" id="login" value="login" name="button">login</button>
+        </form>
+      </div>
+      <!-- LOGIN OUT -->
       <div class="previousFlights">
         <div class="prevFlight card" data-flight-destination="xx">
           <div class="destinations">
@@ -213,6 +265,25 @@
 
 
     });
+
+    // SHOW HIDE IN
+
+    $(".btnRegister").click(function () {
+      $("#register").toggleClass("hidden");
+      if (!$("#LoginContainer").hasClass("hidden")) {
+        $("#LoginContainer").toggleClass("hidden");
+      }
+    });
+
+    $(".btnLogin").click(function () {
+      $("#LoginContainer").toggleClass("hidden");
+      if (!$("#register").hasClass("hidden")) {
+        $("#register").toggleClass("hidden");
+      }
+    });
+
+    // SHOW HIDE OUT
     </script>
+    <script src="js/userFunc.js" charset="utf-8"></script>
   </body>
 </html>
