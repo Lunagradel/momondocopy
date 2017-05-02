@@ -41,6 +41,13 @@ $("#submit").click(function () {
 
   localStorage.setItem("user", data);
 
+  swal("User successfully registered", "Please login to use the service", "success");
+
+  if (!$("#register").hasClass("hidden")) {
+    $("#register").toggleClass("hidden");
+  }
+
+
 })
 $("#login").click(function () {
   var formData = $.parseJSON(localStorage.user),
@@ -55,9 +62,13 @@ $("#login").click(function () {
 
   if ((inputMail == mail) && (inputPass == pass)) {
     console.log("ITS A MIRCALE");
+    swal("Success", "You've been logged in!", "success")
+    if (!$("#LoginContainer").hasClass("hidden")) {
+      $("#LoginContainer").toggleClass("hidden");
+    }
 
   }else {
-    console.log("Its not a miracle");
+    sweetAlert("Login failed", "Password and username did not match", "error");
     console.log(inputMail+" and stored "+mail);
     console.log(inputPass+" and stored "+pass);
   }

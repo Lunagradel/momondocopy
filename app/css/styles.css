@@ -365,10 +365,12 @@ footer {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box; }
+
 .payment-page .container {
   margin-top: 100px;
   width: 100%;
   height: 100vh; }
+
 .payment-page .center-box {
   padding: 20px;
   width: 40%;
@@ -380,6 +382,7 @@ footer {
   @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .payment-page .center-box {
       width: 70%; } }
+
 .payment-page input[type="text"] {
   padding: 5px;
   height: 35px;
@@ -387,16 +390,20 @@ footer {
   border-style: none;
   border-radius: 3px;
   width: 100%; }
+
 .payment-page .row {
   color: white;
   padding: 5px;
   min-height: 50px;
   width: 100%; }
+
 .payment-page .wrap-row {
   padding: 5px;
   width: 100%; }
+
 .payment-page .small-item {
   width: 31%; }
+
 .payment-page button {
   width: 100px;
   height: 50px;
@@ -422,5 +429,3 @@ footer {
   background-color: #03A9F4 !important;
   color: #E1F5FE !important;
   font-family: "Josefin Sans", sans-serif; }
-
-/*# sourceMappingURL=styles.css.map */
