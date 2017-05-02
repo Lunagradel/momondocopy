@@ -37,13 +37,15 @@ body{
       justify-content: center;
     }
     input{
-      border: solid 1px black;
       margin: 0 5px;
       height: 25px;
       @include bp-mobile() {
         margin: 2px 0px;
       }
     }
+		.passengers{
+			width: 30px;
+		}
     button{
       height: 50px;
       width: 50px;
@@ -53,15 +55,13 @@ body{
       color: white;
       font-weight: bold;
       font-family: arial;
-      box-shadow: 0 0 2px #227270;
+			@include box-shadow(0px, 0px, 4px, #888888, false);
       cursor: pointer;
       position: absolute;
       right: 0px;
       @include transitionEase(all, 100ms);
       &:hover{
-        height: 48px;
-        width: 48px;
-        right: 0px;
+				@include box-shadow(0px, 0px, 0px, #888888, false);
       }
     }
   }
@@ -96,16 +96,6 @@ body{
 				}
 		}
   }
-}
-a{
-  text-transform: uppercase;
-  text-decoration: none;
-  background-color: $blue;
-  padding: 10px 15px;
-  border-radius: 200px;
-  color: white;
-  box-shadow: 0 0 2px #227270;
-  margin: 0 5px;
 }
 
 footer{

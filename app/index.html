@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+    <script src="https://use.fontawesome.com/bce7f6c050.js"></script>
     <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../node_modules/sweetalert/dist/sweetalert.css">
   </head>
@@ -19,12 +20,16 @@
       <form class="" action="index.html" method="post">
         <div class="">
           <input class="from" type="text" name="from" value="Copenhagen" maxlength="10">
+          <i class="fa fa-arrows-h" aria-hidden="true"></i>
           <input class="to" type="text" name="to" value="Berlin" maxlength="10">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
           <input type="date" name="fromDate" value="">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
           <input type="date" name="toDate" value="">
-          <input type="number" name="passengers" value="1">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <input type="number" class="passengers" name="passengers" value="1">
         </div>
-        <button class="regular-button" type="button" name="submit" id="goSearch">Go!</button>
+        <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
       </form>
     </div>
     <div class="content">
