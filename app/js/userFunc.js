@@ -8,6 +8,7 @@ function loginChangeMarkup() {
     var sUserDetails = "<button class='btnUser regular-button'>Account</button>"
     $(".btnLogin").html("Logout");
     $(".login").append(sUserDetails);
+    $(".btnRegister").hide();
   }else {
 
     $(".btnLogin").html("Login");
@@ -15,6 +16,46 @@ function loginChangeMarkup() {
   }
 }
 
+// -> ACOUNT DETAILS //
+
+$(document.body).on('click', '.btnUser' , function() {
+  var accountMarkup = document.getElementById("accountInfo");
+  if (accountMarkup) {
+    document.getElementById("accountInfo").style.display = "none";
+  }else {
+    var userInfo = JSON.parse(localStorage.user),
+        user = userInfo.user.credentials,
+        template = '<div id="accountInfo">\
+                      <span class="accountSpan">Title: '+user.title+'</span>\
+                      <span class="accountSpan">Fist Name: '+user.firstName+'</span>\
+                      <span class="accountSpan">Last Name: '+user.lastName+'</span>\
+                      <span class="accountSpan">Email: '+user.email+'</span>\
+                      <span class="accountSpan">Birthdate: '+user.bday+'</span>\
+                      <span class="accountSpan">Phone: '+user.phone+'</span>\
+                      <span class="accountSpan">Passport: '+user.PassNr+'</span>\
+                      <span class="accountSpan">Company: '+user.CompanyName+'</span>\
+                    </div>';
+    $(".content").prepend(template);
+  }
+});
+
+function fillInAccount() {
+  if (localStorage){
+    var userInfo = JSON.parse(localStorage.user);
+    var user = userInfo.user.credentials;
+    console.log(user);
+    $(".title").val(user.title);
+    $(".name").val(user.firstName);
+    $(".lastname").val(user.lastName);
+    $(".email").val(user.email);
+    $(".company").val(user.CompanyName);
+    $(".birthday").val(user.bday);
+    $(".phone").val(user.phone);
+    $(".passport").val(user.PassNr);
+
+  }
+}
+// ACOUNT DETAILS -> //
 
 // SHOW HIDE IN
 
