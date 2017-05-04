@@ -19,17 +19,22 @@
 
       <form class="" action="index.html" method="post">
         <div class="">
-          <input class="from" type="text" name="from" value="Copenhagen" maxlength="10">
+          <input class="from" type="text" name="from" placeholder="From" maxlength="3">
           <i class="fa fa-arrows-h" aria-hidden="true"></i>
-          <input class="to" type="text" name="to" value="Berlin">
+          <input class="to" type="text" name="to" placeholder="To">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input type="date" name="fromDate" value="">
+          <input class="from-date" type="date" name="fromDate" value="">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input type="date" name="toDate" value="">
+          <input class="to-date"  type="date" name="toDate" value="">
           <i class="fa fa-users" aria-hidden="true"></i>
           <input type="number" class="passengers" name="passengers" value="1">
+          <select class="return" name="returnOneway">
+            <option value="return">Return</option>
+            <option value="oneway">One way</option>
+          </select>
+          <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
         </div>
-        <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
+
       </form>
     </div>
     <div class="content">
@@ -121,7 +126,7 @@
         						<p class="result-to">TLX</p>
         						<p>12:50</p>
         					</div>
-        					<div class="info">
+        					<div class="info return-field">
         						<p>08:00</p>
         						<p class="result-to">TXL</p>
         						<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
@@ -156,57 +161,7 @@
             </div>
 
 
-      			<div class="result-box">
-      				<div class="flight-info">
-      					<div class="info">
-      						<p>13:45</p>
-      						<p class="result-from">CPH</p>
-      						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-      						<p class="result-to">TLX</p>
-      						<p>14:50</p>
-      					</div>
-      					<div class="info">
-      						<p>10:00</p>
-      						<p class="result-to">TXL</p>
-      						<div class="line"></div>
-      						<p class="result-from">CPH</p>
-      						<p>11:05</p>
-      					</div>
-      				</div>
-      				<div class="price-box">
-      					<p>42 EUR</p>
-      					<button class="regular-button">BOOK NOW</button>
-      				</div>
-      			</div>
-      			<div class="further-info-button">
-      						<p>Further travel suggestions</p>
-      					</div>
-      			<div class="further-info-box">
-      				<div class="options">
-      					<p>Public transport</p>
-      					<div class="transport-info">
-      						<p>TXL</p>
-      						<div></div>
-      						<p>your adress..</p>
-      					</div>
-      				</div>
-      				<div class="options">
-      					<p>Taxi</p>
-      					<p>Approximately 20 min by taxi</p>
-      				</div>
-      			</div>
-      		</div>
-      	</div>
     </div>
-    <footer>
-      <ul>
-        <li>Here</li>
-        <li>Is</li>
-        <li>The</li>
-        <li>Footer</li>
-        <li>....</li>
-      </ul>
-    </footer>
     <script>
 
       $(document).ready(function(){
@@ -220,7 +175,7 @@
 
       $(".price-box > button").click(function(event) {
         event.preventDefault();
-        window.location.href = 'payment.html';
+        window.location.href = 'book.html';
       });
 
       var bSearched = false;
@@ -228,8 +183,15 @@
       $("#goSearch").click(function (event) {
         event.preventDefault();
 
+        $(".return-field").show();
+
+
         var from = $(".from").val().toUpperCase();
         var to = $(".to").val().toUpperCase();
+        var fromDate = $(".from-date").val();
+        var toDate = $(".to-date").val();
+        var passengers = $(".passengers").val();
+        var returnValue = $(".return").val();
 
         if (from != "" && to != ""){
 
@@ -241,6 +203,10 @@
 
           $(".result-to").empty();
           $(".result-to").append(to);
+
+          if (returnValue == "oneway"){
+            $(".return-field").hide();
+          }
 
           if (to == "ALEXANDERPLATZ 22") {
               var infoToAppend = '<div class="options">\
@@ -266,7 +232,8 @@
 
           localStorage.removeItem(lastSearch);
 
-          var lastSearch = {"from":from, "to":to};
+          var lastSearch = {"from":from, "to":to, "fromDate":fromDate, "toDate":toDate, "passengers":passengers, "returnValue":returnValue };
+          console.log(lastSearch);
           localSearch = JSON.stringify(lastSearch);
           localStorage.lastSearch = localSearch;
         }
