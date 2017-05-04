@@ -1,3 +1,8 @@
+.button {
+  text-align: center;
+  margin: 25px auto 0px;
+  padding: 4px; }
+
 /**
 * SassFlexbox
 * Manage Flexbox in Sass easily.
@@ -8,7 +13,7 @@
 /*
     Display
  */
-#search-bar form div, .previousFlights .prevFlight .previous-search, .search-result, .results, .filters, .filter, .result-box, .flight-info, .price-box, .info, .further-info-button, .further-info-box, .options div, .transport-info, .payment-page .container, .payment-page .center-box, .payment-page .wrap-row, .payment-page .center, .booking-wrapper, .booking-information, .booking-information div, .con-wrapper, .confirmation-info, .booking-number, .information, .passenger-info, .flight-information, .outbound, .inbound, .passengers {
+.box-overlay .register, #accountContainer > .box-overlay, #search-bar form div, .previousFlights .prevFlight .previous-search, .search-result, .results, .filters, .filter, .result-box, .flight-info, .price-box, .info, .further-info-button, .further-info-box, .options div, .transport-info, .payment-page .container, .payment-page .center-box, .payment-page .wrap-row, .payment-page .center, .booking-wrapper, .booking-information, .booking-information div, .con-wrapper, .confirmation-info, .booking-number, .information, .passenger-info, .flight-information, .outbound, .inbound, .passengers {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flexbox;
@@ -27,7 +32,7 @@
   -ms-flex-direction: row;
   flex-direction: row; }
 
-.results, .flight-info, .price-box, .further-info-box, .payment-page .center-box, .booking-information, .con-wrapper, .confirmation-info, .booking-number, .passenger-info, .flight-information {
+.box-overlay .register, #accountContainer > .box-overlay, .results, .flight-info, .price-box, .further-info-box, .payment-page .center-box, .booking-information, .con-wrapper, .confirmation-info, .booking-number, .passenger-info, .flight-information {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   -webkit-flex-direction: column;
@@ -65,7 +70,7 @@
 /*
     Justify content
  */
-.payment-page .center {
+.box-overlay .register, #accountContainer > .box-overlay, .payment-page .center {
   -webkit-box-pack: end;
   -moz-box-pack: end;
   -webkit-flex-pack: end;
@@ -83,7 +88,7 @@ footer, .filter, .price-box, .info, .further-info-button, .payment-page .contain
   -webkit-justify-content: center;
   justify-content: center; }
 
-.previousFlights .prevFlight .previous-search, .payment-page .wrap-row {
+#search-bar form, .previousFlights .prevFlight .previous-search, .payment-page .wrap-row {
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -webkit-flex-pack: justify;
@@ -113,30 +118,30 @@ footer, .filter, .price-box, .info, .further-info-button, .payment-page .contain
 /*
     Align content
  */
-#register, #LoginContainer {
+.box-overlay {
   padding: 25px;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 1;
-  top: 10%; }
-  #register .register, #LoginContainer .register {
-    display: flex;
-    justify-content: center;
-    flex-direction: column; }
-  #register h3, #LoginContainer h3 {
+  top: 100%;
+  max-width: 80vw; }
+  .box-overlay h3 {
     text-align: center;
     padding-bottom: 10px; }
-  #register input, #LoginContainer input {
+  .box-overlay input {
     height: 25px;
     font-size: 15px;
     font-family: "Josefin Sans", sans-serif;
     border: solid 1px #B3E5FC; }
 
-#login, #submit {
-  text-align: center;
-  margin: 25px auto 0px;
-  padding: 4px; }
+.canvas {
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: transparent; }
 
 * {
   margin: 0;
@@ -166,7 +171,11 @@ body {
     padding-bottom: 40px; }
   #search-bar form {
     display: flex;
-    position: relative; }
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 35px 0 0;
+    width: 75vw; }
     @media only screen and (max-width: 736px) {
       #search-bar form {
         flex-direction: column;
@@ -194,6 +203,7 @@ body {
       color: white;
       cursor: pointer;
       margin-left: 15px;
+      right: 0px;
       -webkit-box-shadow: 0px 0px 4px #888888;
       -moz-box-shadow: 0px 0px 4px #888888;
       box-shadow: 0px 0px 4px #888888;

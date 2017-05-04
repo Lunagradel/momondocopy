@@ -2,52 +2,48 @@ $(document).ready(function () {
   loginChangeMarkup();
 });
 
+$(".btnLogout").click(function () {
+  localStorage.setItem("isLoggedIn", "false");
+  loginChangeMarkup()
+});
 
 function loginChangeMarkup() {
   if (localStorage.getItem("isLoggedIn") == "true") {
-    var sUserDetails = "<button class='btnUser regular-button'>Account</button>"
-    $(".btnLogin").html("Logout");
-    $(".login").append(sUserDetails);
+    console.log("loggedin");
+    $(".btnUser").show();
+    $(".btnLogout").show();
+    $(".btnRegister").hide();
+    $(".btnLogin").hide();
   }else {
-
-    $(".btnLogin").html("Login");
-    $(".btnUser").remove();
+    $(".btnUser").hide();
+    $(".btnLogout").hide();
+    $(".btnRegister").show();
+    $(".btnLogin").show();
   }
 }
 
+// -> ACOUNT DETAILS //
 
-// SHOW HIDE IN
-
-$(".btnRegister").click(function () {
-  if (localStorage.getItem("isLoggedIn") == "true") {
-
-  }
-  $("#register").toggleClass("hidden");
-  if (!$("#LoginContainer").hasClass("hidden")) {
-    $("#LoginContainer").toggleClass("hidden");
-  }
-});
-
-$(".btnLogin").click(function () {
-  if (localStorage.getItem("isLoggedIn") == "true") {
-    localStorage.setItem("isLoggedIn", false);
-    loginChangeMarkup();
-    swal({
-      title: "Logout!",
-      text: "User has successfully been logged out",
-      timer: 1500,
-      showConfirmButton: false
-    });
+$(document.body).on('click', '.btnUser' , function() {
+  var accountMarkup = document.getElementById("accountInfo");
+  if (accountMarkup) {
+    document.getElementById("accountInfo").style.display = "none";
   }else {
-    $("#LoginContainer").toggleClass("hidden");
-    if (!$("#register").hasClass("hidden")) {
-      $("#register").toggleClass("hidden");
-    }
+    var userInfo = JSON.parse(localStorage.user),
+        user = userInfo.user.credentials,
+        userCredentials = [user.title, user.firstName, user.lastName, user.email, user.bday, user.phone, user.PassNr, user.CompanyName];
+        template = '<span class="account-span-">Title: '+user.title+'</span>\
+                    <span class="account-span-">Fist Name: '+user.firstName+'</span>\
+                    <span class="account-span-">Last Name: '+user.lastName+'</span>\
+                    <span class="account-span-">Email: '+user.email+'</span>\
+                    <span class="account-span-">Birthdate: '+user.bday+'</span>\
+                    <span class="account-span-">Phone: '+user.phone+'</span>\
+                    <span class="account-span-">Passport: '+user.PassNr+'</span>\
+                    <span class="account-span-">Company: '+user.CompanyName+'</span>';
+    $("#accountContainer").children(".box-overlay").html(template);
+
   }
 });
-
-// SHOW HIDE OUT
-
 
 $("#submit").click(function () {
   var sFirstName = $("input[name='firstName']").val(),
@@ -85,19 +81,12 @@ $("#submit").click(function () {
                         }
                       }
 
-  // var data = JSON.stringify( $(".register").serializeArray());
   var data = JSON.stringify(userjson);
-
-  console.log(data);
 
   localStorage.setItem("user", data);
 
   swal("User successfully registered", "Please login to use the service", "success");
-
-  if (!$("#register").hasClass("hidden")) {
-    $("#register").toggleClass("hidden");
-  }
-
+  
 
 })
 $("#login").click(function () {
@@ -107,24 +96,15 @@ $("#login").click(function () {
       inputMail = $("input[name='loginMail']").val(),
       inputPass = $("input[name='loginPass']").val();
 
-
   if ((inputMail == mail) && (inputPass == pass)) {
-    console.log("ITS A MIRCALE");
+
     swal("Success", "You've been logged in!", "success")
-    if (!$("#LoginContainer").hasClass("hidden")) {
-      $("#LoginContainer").toggleClass("hidden");
-    }
+
     localStorage.setItem("isLoggedIn", "true");
     loginChangeMarkup();
 
   }else {
     sweetAlert("Login failed", "Password and username did not match", "error");
-    console.log(inputMail+" and stored "+mail);
-    console.log(inputPass+" and stored "+pass);
+    console.log("pw: "+pass+" m: "+mail);
   }
-})
-
-$(".btnUser").click(function () {
-
-
 })

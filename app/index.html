@@ -6,17 +6,18 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/bce7f6c050.js"></script>
     <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../node_modules/sweetalert/dist/sweetalert.css">
   </head>
   <body>
     <div id="search-bar">
       <div class="login">
-        <button class="btnLogin regular-button">Login</button>
-        <button class="btnRegister regular-button">Register</button>
+        <button class='btnLogout regular-button'>Logout</button>
+        <button data-canvas="login" class="btnLogin regular-button">Login</button>
+        <button data-canvas="register" class="btnRegister regular-button">Register</button>
+        <button data-canvas="account" class='btnUser regular-button'>Account</button>
       </div>
-
       <form class="" action="index.html" method="post">
         <div class="">
           <input class="from" type="text" name="from" placeholder="From" maxlength="3">
@@ -39,60 +40,69 @@
     </div>
     <div class="content">
       <!-- REGISTER IN  -->
-      <div id="register" class="card hidden">
-        <h3>REGISTER</h3>
-          <form class="register" action="index.html" method="post">
-            First name:</br>
-            <input type="text" name="firstName" value="" placeholder="John">
-            Last Name:</br>
-            <input type="text" name="lastName" value="" placeholder="Doe">
-            Email:</br>
-            <input type="email" name="mail" value="" placeholder="example@example.com">
-            Password:</br>
-            <input type="password" name="Password" value="">
-            Birthdate:</br>
-            <input type="date" name="Bday" value="">
-            <div class="gender">
-              <input type="radio" class="genderInput" name="gender" value="male" checked> Male
-              <input type="radio" class="genderInput" name="gender" value="female"> Female
-            </div>
-            Passport Number:</br>
-            <input type="number" name="Passport" value="" placeholder="">
-            Phone Number: </br>
-            <input type="tel" name="Phone" value="" placeholder="Phone Nr">
-            Company Name: </br>
-            <input type="text" name="Company" value="" placeholder="Company Name">
-
-            <div id="creditCard">
-              Credit Card Number:</br>
-              <input type="number" name="cardNr" value="">
-              Expiration Year:</br>
-              <input type="number" name="exYear" value="">
-              Expiration Month:</br>
-              <input type="number" name="exMnth" value="">
-              Cardholder Name:</br>
-              <input type="text" name="cardHolder" value="" placeholder="John Doe">
-            </div>
-            <div type="button" id="submit" class="regular-button" name="submit">Register</div>
-          </form>
-      </div>
+      <section id="register" class="canvas">
+        <div class="card box-overlay">
+          <h3>REGISTER</h3>
+            <form class="register" action="index.html" method="post">
+              First name:</br>
+              <input type="text" name="firstName" value="" placeholder="John">
+              Last Name:</br>
+              <input type="text" name="lastName" value="" placeholder="Doe">
+              Email:</br>
+              <input type="email" name="mail" value="" placeholder="example@example.com">
+              Password:</br>
+              <input type="password" name="Password" value="">
+              Birthdate:</br>
+              <input type="date" name="Bday" value="">
+              <div class="gender">
+                <input type="radio" class="genderInput" name="gender" value="male" checked> Male
+                <input type="radio" class="genderInput" name="gender" value="female"> Female
+              </div>
+              Passport Number:</br>
+              <input type="number" name="Passport" value="" placeholder="">
+              Phone Number: </br>
+              <input type="tel" name="Phone" value="" placeholder="Phone Nr">
+              Company Name: </br>
+              <input type="text" name="Company" value="" placeholder="Company Name">
+              <div id="creditCard">
+                Credit Card Number:</br>
+                <input type="number" name="cardNr" value="">
+                Expiration Year:</br>
+                <input type="number" name="exYear" value="">
+                Expiration Month:</br>
+                <input type="number" name="exMnth" value="">
+                Cardholder Name:</br>
+                <input type="text" name="cardHolder" value="" placeholder="John Doe">
+              </div>
+              <div type="button" id="submit" class="regular-button" name="submit">Register</div>
+            </form>
+        </div>
+      </section>
       <!-- REGISTER OUT -->
       <!-- LOGIN IN -->
-      <div id="LoginContainer" class="card hidden">
-        <h3>LOGIN</h3>
-        <form class="login">
-          Email:
-          <input type="email" name="loginMail" value="" placeholder="John@doe.com">
-          Password:
-          <input type="Password" name="loginPass" value="">
-          <div type="button" id="login" class="regular-button" value="login" name="button">login</div>
-        </form>
-      </div>
+    <section id="LoginContainer" class="canvas">
+        <div class="card box-overlay">
+          <h3>LOGIN</h3>
+          <form class="login">
+            Email:
+            <input type="email" name="loginMail" value="" placeholder="John@doe.com">
+            Password:
+            <input type="Password" name="loginPass" value="">
+            <div type="button" id="login" class="regular-button" value="login" name="button">login</div>
+          </form>
+        </div>
+      </section>
       <!-- LOGIN OUT -->
+      <!-- ACCOUNT IN -->
+      <section id="accountContainer" class="canvas">
+        <div class="card box-overlay">
+        </div>
+      </section class="canvas">
+      <!-- ACCOUNT OUT -->
       <div class="previousFlights">
         <div class="prevFlight card" data-flight-destination="xx">
           <div class="destinations">
-            <span class="prev-from">AMS</span> <i class="fa fa-long-arrow-right" aria-hidden="true"></i> <span class="prev-to">CPH</span>
+            <span class="prev-from">AMS</span><i class="fa fa-long-arrow-right" aria-hidden="true"></i><span class="prev-to">CPH</span>
           </div>
           <div class="previous-search">
             <input type="date">
@@ -101,7 +111,7 @@
           </div>
         </div>
         <div class="prevFlight card" data-flight-destination="xx">
-          <div class="destinations">BRN <i class="fa fa-long-arrow-right" aria-hidden="true"></i> LND</div>
+          <div class="destinations">BRN<i class="fa fa-long-arrow-right" aria-hidden="true"></i>LND</div>
           <div class="previous-search">
             <input type="date">
             <input type="date">
@@ -122,14 +132,14 @@
         					<div class="info">
         						<p>11:45</p>
         						<p class="result-from">CPH</p>
-        						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         						<p class="result-to">TLX</p>
         						<p>12:50</p>
         					</div>
         					<div class="info return-field">
         						<p>08:00</p>
         						<p class="result-to">TXL</p>
-        						<i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
         						<p class="result-from">CPH</p>
         						<p>09:05</p>
         					</div>
@@ -145,22 +155,20 @@
         					</div>
         			<div class="further-info-box">
         				<div class="options">
-        					<p class="option-header">Public transport</p>
+        					<p>Public transport</p>
         					<div class="transport-info">
-                    <input type="checkbox">
         						<p>TXL</p>
-        						<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-        						<p>Alexanderplatz 22</p>
+        						<div></div>
+        						<p>your adress..</p>
         					</div>
         				</div>
         				<div class="options">
-        					<p class="option-header">Taxi</p>
-        					<div><input type="checkbox"><p>Approximately 20 min by taxi</p></div>
+        					<p>Taxi</p>
+        					<p>Approximately 20 min by taxi</p>
         				</div>
         			</div>
             </div>
-
-
+      	</div>
     </div>
     <script>
 
@@ -193,8 +201,7 @@
         var passengers = $(".passengers").val();
         var returnValue = $(".return").val();
 
-        if (from != "" && to != ""){
-
+        if (from != "" && to != "" && toDate != "" && fromDate != ""){
           $(".search-result").removeClass("hidden");
           $(".previousFlights").addClass("hidden");
 
@@ -237,10 +244,10 @@
           localSearch = JSON.stringify(lastSearch);
           localStorage.lastSearch = localSearch;
         }
-
-
     });
     </script>
+
+    <script src="js/pop-in-box.js" charset="utf-8"></script>
     <script src="js/userFunc.js" charset="utf-8"></script>
   </body>
 </html>

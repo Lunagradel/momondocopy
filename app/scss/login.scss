@@ -1,17 +1,15 @@
-#register, #LoginContainer{
+.box-overlay{
   padding: 25px;
   position: fixed;
-  // background-color: $background;
-  // border-radius: 1%;
-  // @include box-shadow(3px, 3px, 10px, #888888, false);
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 1;
-  top: 10%;
+  top: 100%;
+  max-width: 80vw;
   .register{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    @include display-flex();
+    @include justify-content(flex-end);
+    @include flex-direction(column);
   }
   h3{
     text-align: center;
@@ -24,8 +22,17 @@
     border: solid 1px $bordercolor;
   }
 }
-#login, #submit{
-  text-align: center;
-  margin: 25px auto 0px;
-  padding: 4px;
+.canvas{
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // transform: translateY(100%);
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+}
+#accountContainer > .box-overlay{
+  @include display-flex();
+  @include justify-content(flex-end);
+  @include flex-direction(column);
 }
