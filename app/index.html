@@ -13,8 +13,10 @@
   <body>
     <div id="search-bar">
       <div class="login">
-        <button class="btnLogin regular-button">Login</button>
-        <button class="btnRegister regular-button">Register</button>
+        <button class='btnLogout regular-button'>Logout</button>
+        <button data-canvas="login" class="btnLogin regular-button">Login</button>
+        <button data-canvas="register" class="btnRegister regular-button">Register</button>
+        <button data-canvas="account" class='btnUser regular-button'>Account</button>
       </div>
       <form class="" action="index.html" method="post">
         <div class="">
@@ -33,56 +35,65 @@
     </div>
     <div class="content">
       <!-- REGISTER IN  -->
-      <div id="register" class="card hidden">
-        <h3>REGISTER</h3>
-          <form class="register" action="index.html" method="post">
-            First name:</br>
-            <input type="text" name="firstName" value="" placeholder="John">
-            Last Name:</br>
-            <input type="text" name="lastName" value="" placeholder="Doe">
-            Email:</br>
-            <input type="email" name="mail" value="" placeholder="example@example.com">
-            Password:</br>
-            <input type="password" name="Password" value="">
-            Birthdate:</br>
-            <input type="date" name="Bday" value="">
-            <div class="gender">
-              <input type="radio" class="genderInput" name="gender" value="male" checked> Male
-              <input type="radio" class="genderInput" name="gender" value="female"> Female
-            </div>
-            Passport Number:</br>
-            <input type="number" name="Passport" value="" placeholder="">
-            Phone Number: </br>
-            <input type="tel" name="Phone" value="" placeholder="Phone Nr">
-            Company Name: </br>
-            <input type="text" name="Company" value="" placeholder="Company Name">
-
-            <div id="creditCard">
-              Credit Card Number:</br>
-              <input type="number" name="cardNr" value="">
-              Expiration Year:</br>
-              <input type="number" name="exYear" value="">
-              Expiration Month:</br>
-              <input type="number" name="exMnth" value="">
-              Cardholder Name:</br>
-              <input type="text" name="cardHolder" value="" placeholder="John Doe">
-            </div>
-            <div type="button" id="submit" class="regular-button" name="submit">Register</div>
-          </form>
-      </div>
+      <section id="register" class="canvas">
+        <div class="card box-overlay">
+          <h3>REGISTER</h3>
+            <form class="register" action="index.html" method="post">
+              First name:</br>
+              <input type="text" name="firstName" value="" placeholder="John">
+              Last Name:</br>
+              <input type="text" name="lastName" value="" placeholder="Doe">
+              Email:</br>
+              <input type="email" name="mail" value="" placeholder="example@example.com">
+              Password:</br>
+              <input type="password" name="Password" value="">
+              Birthdate:</br>
+              <input type="date" name="Bday" value="">
+              <div class="gender">
+                <input type="radio" class="genderInput" name="gender" value="male" checked> Male
+                <input type="radio" class="genderInput" name="gender" value="female"> Female
+              </div>
+              Passport Number:</br>
+              <input type="number" name="Passport" value="" placeholder="">
+              Phone Number: </br>
+              <input type="tel" name="Phone" value="" placeholder="Phone Nr">
+              Company Name: </br>
+              <input type="text" name="Company" value="" placeholder="Company Name">
+              <div id="creditCard">
+                Credit Card Number:</br>
+                <input type="number" name="cardNr" value="">
+                Expiration Year:</br>
+                <input type="number" name="exYear" value="">
+                Expiration Month:</br>
+                <input type="number" name="exMnth" value="">
+                Cardholder Name:</br>
+                <input type="text" name="cardHolder" value="" placeholder="John Doe">
+              </div>
+              <div type="button" id="submit" class="regular-button" name="submit">Register</div>
+            </form>
+        </div>
+      </section>
       <!-- REGISTER OUT -->
       <!-- LOGIN IN -->
-      <div id="LoginContainer" class="card hidden">
-        <h3>LOGIN</h3>
-        <form class="login">
-          Email:
-          <input type="email" name="loginMail" value="" placeholder="John@doe.com">
-          Password:
-          <input type="Password" name="loginPass" value="">
-          <div type="button" id="login" class="regular-button" value="login" name="button">login</div>
-        </form>
-      </div>
+    <section id="LoginContainer" class="canvas">
+        <div class="card box-overlay">
+          <h3>LOGIN</h3>
+          <form class="login">
+            Email:
+            <input type="email" name="loginMail" value="" placeholder="John@doe.com">
+            Password:
+            <input type="Password" name="loginPass" value="">
+            <div type="button" id="login" class="regular-button" value="login" name="button">login</div>
+          </form>
+        </div>
+      </section>
       <!-- LOGIN OUT -->
+      <!-- ACCOUNT IN -->
+      <section id="accountContainer" class="canvas">
+        <div class="card box-overlay">
+        </div>
+      </section class="canvas">
+      <!-- ACCOUNT OUT -->
       <div class="previousFlights">
         <div class="prevFlight card" data-flight-destination="xx">
           <div class="destinations">
@@ -268,10 +279,10 @@
           localUser = JSON.stringify(userjson)
           localStorage.user = localUser;
         }
-
-
     });
     </script>
+
+    <script src="js/pop-in-box.js" charset="utf-8"></script>
     <script src="js/userFunc.js" charset="utf-8"></script>
   </body>
 </html>
