@@ -4,6 +4,7 @@ $(document).ready(function () {
 
 $(".btnLogout").click(function () {
   localStorage.setItem("isLoggedIn", "false");
+  swal("Logged out!", "User has successfully logged out.")
   loginChangeMarkup()
 });
 
@@ -86,7 +87,7 @@ $("#submit").click(function () {
   localStorage.setItem("user", data);
 
   swal("User successfully registered", "Please login to use the service", "success");
-  
+
 
 })
 $("#login").click(function () {

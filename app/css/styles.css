@@ -79,7 +79,7 @@
   -webkit-justify-content: flex-end;
   justify-content: flex-end; }
 
-footer, .filter, .price-box, .info, .further-info-button, .payment-page .container, .payment-page .center-box, .booking-wrapper, .booking-information div, .con-wrapper, .booking-number {
+.filter, .price-box, .info, .further-info-button, .payment-page .container, .payment-page .center-box, .booking-wrapper, .booking-information div, .con-wrapper, .booking-number {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -webkit-flex-pack: center;
@@ -97,7 +97,7 @@ footer, .filter, .price-box, .info, .further-info-button, .payment-page .contain
   -webkit-justify-content: space-between;
   justify-content: space-between; }
 
-.previousFlights .prevFlight, footer ul, .search-result, .flight-info, .further-info-box, .booking-information, .outbound, .inbound, .passengers {
+.previousFlights .prevFlight, .search-result, .flight-info, .further-info-box, .booking-information, .outbound, .inbound, .passengers {
   -moz-justify-content: space-around;
   -webkit-justify-content: space-around;
   justify-content: space-around; }
@@ -234,8 +234,19 @@ body {
     padding: 15px;
     margin: 15px 0;
     font-size: 18px; }
+    @media only screen and (max-width: 736px) {
+      .previousFlights .prevFlight {
+        flex-direction: column; } }
     .previousFlights .prevFlight .previous-search {
       width: 400px; }
+      @media only screen and (max-width: 736px) {
+        .previousFlights .prevFlight .previous-search {
+          flex-direction: column;
+          max-width: 100%; }
+          .previousFlights .prevFlight .previous-search input {
+            margin: 10px 0; }
+          .previousFlights .prevFlight .previous-search button {
+            margin: 0 auto; } }
       .previousFlights .prevFlight .previous-search input {
         height: 25px;
         font-size: 15px;
@@ -251,23 +262,6 @@ body {
 
 a {
   text-decoration: none; }
-
-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  padding-top: 30px; }
-  footer ul {
-    width: 100%;
-    display: flex;
-    flex-direction: row; }
-    footer ul li {
-      list-style: none;
-      text-transform: uppercase; }
 
 .destinations {
   color: #0288D1; }
@@ -409,10 +403,12 @@ footer {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box; }
+
 .payment-page .container {
   margin-top: 100px;
   width: 100%;
   height: 100vh; }
+
 .payment-page .center-box {
   padding: 20px;
   width: 40%;
@@ -424,6 +420,7 @@ footer {
   @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .payment-page .center-box {
       width: 70%; } }
+
 .payment-page input[type="text"] {
   padding: 5px;
   height: 35px;
@@ -431,16 +428,20 @@ footer {
   border-style: none;
   border-radius: 3px;
   width: 100%; }
+
 .payment-page .row {
   color: white;
   padding: 5px;
   min-height: 50px;
   width: 100%; }
+
 .payment-page .wrap-row {
   padding: 5px;
   width: 100%; }
+
 .payment-page .small-item {
   width: 31%; }
+
 .payment-page button {
   width: 100px;
   height: 50px;
@@ -570,5 +571,3 @@ footer {
   width: 100%;
   height: 100px;
   margin-top: 30px; }
-
-/*# sourceMappingURL=styles.css.map */
