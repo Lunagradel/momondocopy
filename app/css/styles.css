@@ -88,7 +88,7 @@
   -webkit-justify-content: center;
   justify-content: center; }
 
-#search-bar form, .previousFlights .prevFlight .previous-search, .payment-page .wrap-row {
+.previousFlights .prevFlight .previous-search, .payment-page .wrap-row {
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -webkit-flex-pack: justify;
@@ -105,7 +105,7 @@
 /*
     Align items
  */
-#search-bar, #search-bar form, #search-bar form div, .previousFlights .prevFlight, .filter, .price-box, .info, .further-info-button, .options div, .transport-info, .booking-wrapper, .booking-information, .booking-information div, .con-wrapper, .booking-number, .passenger-info, .flight-information, .outbound, .inbound {
+#search-bar, #search-bar form div, .previousFlights .prevFlight, .filter, .price-box, .info, .further-info-button, .options div, .transport-info, .booking-wrapper, .booking-information, .booking-information div, .con-wrapper, .booking-number, .passenger-info, .flight-information, .outbound, .inbound {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -170,10 +170,6 @@ body {
   #search-bar div {
     padding-bottom: 40px; }
   #search-bar form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
     padding: 35px 0 0;
     width: 75vw; }
     @media only screen and (max-width: 736px) {

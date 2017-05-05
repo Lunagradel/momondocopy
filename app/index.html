@@ -24,9 +24,11 @@
           <i class="fa fa-arrows-h" aria-hidden="true"></i>
           <input class="to" type="text" name="to" placeholder="To">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input class="from-date" type="date" name="fromDate" value="">
+          <input placeholder="From" class="from-date" type="text" name="fromDate" onfocus="(this.type='date')" onblur="(this.type='text')">
+          <!-- <input class="from-date" type="date" name="fromDate" value=""> -->
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input class="to-date"  type="date" name="toDate" value="">
+          <input placeholder="To" class="to-date" type="text" name="toDate" onfocus="(this.type='date')" onblur="(this.type='text')">
+          <!-- <input class="to-date"  type="date" name="toDate" value=""> -->
           <i class="fa fa-users" aria-hidden="true"></i>
           <input type="number" class="passengers" name="passengers" value="1">
           <select class="return" name="returnOneway">
