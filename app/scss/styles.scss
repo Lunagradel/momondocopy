@@ -526,7 +526,7 @@ a{
 
 .booking-wrapper {
 	width: 100%;
-	height: 100vh;
+	padding-top: 50px;
 	@include display-flex();
 	@include align-items(center);
 	@include justify-content(center);

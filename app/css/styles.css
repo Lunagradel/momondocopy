@@ -521,7 +521,7 @@ a {
 
 .booking-wrapper {
   width: 100%;
-  height: 100vh; }
+  padding-top: 50px; }
 
 .booking-information {
   height: 500px;
