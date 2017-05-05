@@ -36,3 +36,18 @@
   @include justify-content(flex-end);
   @include flex-direction(column);
 }
+#LoginContainer{
+  .login span{
+    @include display-flex();
+    @include align-items(center);
+    @include flex-direction(column);
+    text-align: center;
+  }
+}
+
+#login{
+  margin: 25px auto 0px;
+  text-align: center;
+  padding: 7px;
+  width: 80px;
+}
