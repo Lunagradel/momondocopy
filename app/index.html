@@ -20,17 +20,22 @@
       </div>
       <form class="" action="index.html" method="post">
         <div class="">
-          <input class="from" type="text" name="from" value="Copenhagen" maxlength="10">
+          <input class="from" type="text" name="from" placeholder="From" maxlength="3">
           <i class="fa fa-arrows-h" aria-hidden="true"></i>
-          <input class="to" type="text" name="to" value="Berlin" maxlength="10">
+          <input class="to" type="text" name="to" placeholder="To">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input type="date" name="fromDate" value="">
+          <input class="from-date" type="date" name="fromDate" value="">
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input type="date" name="toDate" value="">
+          <input class="to-date"  type="date" name="toDate" value="">
           <i class="fa fa-users" aria-hidden="true"></i>
           <input type="number" class="passengers" name="passengers" value="1">
+          <select class="return" name="returnOneway">
+            <option value="return">Return</option>
+            <option value="oneway">One way</option>
+          </select>
+          <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
         </div>
-        <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
+
       </form>
     </div>
     <div class="content">
@@ -97,7 +102,7 @@
       <div class="previousFlights">
         <div class="prevFlight card" data-flight-destination="xx">
           <div class="destinations">
-            <span class="prev-from">AMS</span> -> <span class="prev-to">CPH</span>
+            <span class="prev-from">AMS</span><i class="fa fa-long-arrow-right" aria-hidden="true"></i><span class="prev-to">CPH</span>
           </div>
           <div class="previous-search">
             <input type="date">
@@ -106,7 +111,7 @@
           </div>
         </div>
         <div class="prevFlight card" data-flight-destination="xx">
-          <div class="destinations">BRN -> LND</div>
+          <div class="destinations">BRN<i class="fa fa-long-arrow-right" aria-hidden="true"></i>LND</div>
           <div class="previous-search">
             <input type="date">
             <input type="date">
@@ -127,14 +132,14 @@
         					<div class="info">
         						<p>11:45</p>
         						<p class="result-from">CPH</p>
-        						<div class="line"></div>
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         						<p class="result-to">TLX</p>
         						<p>12:50</p>
         					</div>
-        					<div class="info">
+        					<div class="info return-field">
         						<p>08:00</p>
         						<p class="result-to">TXL</p>
-        						<div class="line"></div>
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
         						<p class="result-from">CPH</p>
         						<p>09:05</p>
         					</div>
@@ -163,48 +168,6 @@
         				</div>
         			</div>
             </div>
-
-
-      			<div class="result-box">
-      				<div class="flight-info">
-      					<div class="info">
-      						<p>13:45</p>
-      						<p class="result-from">CPH</p>
-      						<div class="line"></div>
-      						<p class="result-to">TLX</p>
-      						<p>14:50</p>
-      					</div>
-      					<div class="info">
-      						<p>10:00</p>
-      						<p class="result-to">TXL</p>
-      						<div class="line"></div>
-      						<p class="result-from">CPH</p>
-      						<p>11:05</p>
-      					</div>
-      				</div>
-      				<div class="price-box">
-      					<p>42 EUR</p>
-      					<button class="regular-button">BOOK NOW</button>
-      				</div>
-      			</div>
-      			<div class="further-info-button">
-      						<p>Further travel suggestions</p>
-      					</div>
-      			<div class="further-info-box">
-      				<div class="options">
-      					<p>Public transport</p>
-      					<div class="transport-info">
-      						<p>TXL</p>
-      						<div></div>
-      						<p>your adress..</p>
-      					</div>
-      				</div>
-      				<div class="options">
-      					<p>Taxi</p>
-      					<p>Approximately 20 min by taxi</p>
-      				</div>
-      			</div>
-      		</div>
       	</div>
     </div>
     <script>
@@ -220,7 +183,7 @@
 
       $(".price-box > button").click(function(event) {
         event.preventDefault();
-        window.location.href = 'payment.html';
+        window.location.href = 'book.html';
       });
 
       var bSearched = false;
@@ -228,10 +191,17 @@
       $("#goSearch").click(function (event) {
         event.preventDefault();
 
+        $(".return-field").show();
+
+
         var from = $(".from").val().toUpperCase();
         var to = $(".to").val().toUpperCase();
+        var fromDate = $(".from-date").val();
+        var toDate = $(".to-date").val();
+        var passengers = $(".passengers").val();
+        var returnValue = $(".return").val();
 
-        if (from != "" && to != ""){
+        if (from != "" && to != "" && toDate != "" && fromDate != ""){
           $(".search-result").removeClass("hidden");
           $(".previousFlights").addClass("hidden");
 
@@ -241,34 +211,38 @@
           $(".result-to").empty();
           $(".result-to").append(to);
 
+          if (returnValue == "oneway"){
+            $(".return-field").hide();
+          }
+
+          if (to == "ALEXANDERPLATZ 22") {
+              var infoToAppend = '<div class="options">\
+                <p class="option-header">Public transport</p>\
+                <div class="transport-info">\
+                  <input type="checkbox">\
+                  <p>TXL</p>\
+                  <i class="fa fa-long-arrow-right" aria-hidden="true"></i>\
+                  <p>Alexanderplatz 22</p>\
+                </div>\
+              </div>\
+              <div class="options">\
+                <p class="option-header">Taxi</p>\
+                <div><input type="checkbox"><p>Approximately 20 min by taxi</p></div>\
+              </div>'
+
+              $(".further-info-box").empty();
+              $(".further-info-box").append(infoToAppend);
+          } else {
+              $(".further-info-box").empty();
+              $(".further-info-box").append('<p class="need-adress">Search for an adress to see more information</p>');
+          }
+
           localStorage.removeItem(lastSearch);
 
-          var lastSearch = {"from":from, "to":to};
+          var lastSearch = {"from":from, "to":to, "fromDate":fromDate, "toDate":toDate, "passengers":passengers, "returnValue":returnValue };
+          console.log(lastSearch);
           localSearch = JSON.stringify(lastSearch);
           localStorage.lastSearch = localSearch;
-
-          var userjson =  {"user": {
-                          		"credentials": {
-                          			"firstName": "bob",
-                          			"lastName": "Egon",
-                          			"email": "john@doe.com",
-                          			"bday": "1999-20-12",
-                          			"title": "Ms",
-                          			"PassNr": "983235523",
-                          			"phone": "123213",
-                          			"CompanyName": "Limited Incorporated A/S",
-                          			"creditCard": {
-                          				"cardNr": 89142894712,
-                          				"exMnth": 12,
-                          				"exDay": 23,
-                          				"cardHolder": "Bob Egon"
-                                  }
-  		                           }
-  	                            }
-                              }
-
-          localUser = JSON.stringify(userjson)
-          localStorage.user = localUser;
         }
     });
     </script>

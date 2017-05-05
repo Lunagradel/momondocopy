@@ -13,7 +13,7 @@
 /*
     Display
  */
-.box-overlay .register, #accountContainer > .box-overlay, .previousFlights .prevFlight .previous-search, .search-result, .results, .filters, .filter, .result-box, .flight-info, .price-box, .info, .further-info-button, .further-info-box, .options div, .transport-info, .payment-page .container, .payment-page .center-box, .payment-page .wrap-row, .payment-page .center, .booking-wrapper, .booking-information, .booking-information div {
+.box-overlay .register, #accountContainer > .box-overlay, #search-bar form div, .previousFlights .prevFlight .previous-search, .search-result, .results, .filters, .filter, .result-box, .flight-info, .price-box, .info, .further-info-button, .further-info-box, .options div, .transport-info, .payment-page .container, .payment-page .center-box, .payment-page .wrap-row, .payment-page .center, .booking-wrapper, .booking-information, .booking-information div, .con-wrapper, .confirmation-info, .booking-number, .information, .passenger-info, .flight-information, .outbound, .inbound, .passengers {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flexbox;
@@ -32,7 +32,7 @@
   -ms-flex-direction: row;
   flex-direction: row; }
 
-.box-overlay .register, #accountContainer > .box-overlay, .results, .flight-info, .price-box, .further-info-box, .payment-page .center-box, .booking-information {
+.box-overlay .register, #accountContainer > .box-overlay, .results, .flight-info, .price-box, .further-info-box, .payment-page .center-box, .booking-information, .con-wrapper, .confirmation-info, .booking-number, .passenger-info, .flight-information {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   -webkit-flex-direction: column;
@@ -79,7 +79,7 @@
   -webkit-justify-content: flex-end;
   justify-content: flex-end; }
 
-.filter, .price-box, .info, .further-info-button, .payment-page .container, .payment-page .center-box, .booking-wrapper, .booking-information div {
+.filter, .price-box, .info, .further-info-button, .payment-page .container, .payment-page .center-box, .booking-wrapper, .booking-information div, .con-wrapper, .booking-number {
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -webkit-flex-pack: center;
@@ -97,7 +97,7 @@
   -webkit-justify-content: space-between;
   justify-content: space-between; }
 
-.previousFlights .prevFlight, .search-result, .flight-info, .further-info-box, .booking-information {
+.previousFlights .prevFlight, .search-result, .flight-info, .further-info-box, .booking-information, .outbound, .inbound, .passengers {
   -moz-justify-content: space-around;
   -webkit-justify-content: space-around;
   justify-content: space-around; }
@@ -105,7 +105,7 @@
 /*
     Align items
  */
-#search-bar, #search-bar form, .previousFlights .prevFlight, .filter, .price-box, .info, .further-info-button, .options div, .transport-info, .booking-wrapper, .booking-information, .booking-information div {
+#search-bar, #search-bar form, #search-bar form div, .previousFlights .prevFlight, .filter, .price-box, .info, .further-info-button, .options div, .transport-info, .booking-wrapper, .booking-information, .booking-information div, .con-wrapper, .booking-number, .passenger-info, .flight-information, .outbound, .inbound {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -165,8 +165,10 @@ body {
   display: flex;
   flex-direction: column;
   padding: 50px 0px;
-  background-color: #81D4FA;
-  border-bottom: solid 2px #29B6F6; }
+  background-color: #B3E5FC;
+  border-bottom: solid 2px #81D4FA; }
+  #search-bar div {
+    padding-bottom: 40px; }
   #search-bar form {
     display: flex;
     align-items: center;
@@ -178,25 +180,29 @@ body {
       #search-bar form {
         flex-direction: column;
         justify-content: center; } }
-    #search-bar form input {
+    #search-bar form input, #search-bar form select {
       margin: 0 5px;
       height: 35px;
       width: 150px;
+      background-color: #B3E5FC;
       color: #E1F5FE;
+      border: solid 1px #E1F5FE;
       font-family: "Josefin Sans", sans-serif;
       font-size: 20px; }
       @media only screen and (max-width: 736px) {
-        #search-bar form input {
+        #search-bar form input, #search-bar form select {
           margin: 2px 0px; } }
     #search-bar form .passengers {
       width: 30px; }
+    #search-bar form .return {
+      width: 100px; }
     #search-bar form button {
-      height: 50px;
+      height: 35px;
       width: 80px;
       border: none;
       color: white;
-      font-size: 20px;
       cursor: pointer;
+      margin-left: 15px;
       right: 0px;
       -webkit-box-shadow: 0px 0px 4px #888888;
       -moz-box-shadow: 0px 0px 4px #888888;
@@ -213,6 +219,12 @@ body {
         -webkit-box-shadow: 0px 0px 0px #888888;
         -moz-box-shadow: 0px 0px 0px #888888;
         box-shadow: 0px 0px 0px #888888; }
+
+.login button {
+  border: none;
+  width: 100px;
+  height: 30px;
+  font-size: 20px; }
 
 .previousFlights {
   margin: 0 auto;
@@ -264,7 +276,8 @@ a {
 
 .results {
   width: 75vw;
-  height: auto; }
+  height: auto;
+  margin-top: 25px; }
 
 .filters {
   width: 100%;
@@ -454,7 +467,7 @@ a {
   background-color: #03A9F4 !important;
   color: #E1F5FE !important;
   font-family: "Josefin Sans", sans-serif;
-  box-shadow: 0 0 2px #227270; }
+  cursor: pointer; }
 
 .booking-wrapper {
   width: 100%;
@@ -478,3 +491,56 @@ a {
     width: 100px;
     height: 30px;
     cursor: pointer; }
+
+.con-wrapper {
+  width: 100%;
+  height: 700px;
+  color: #0288D1; }
+
+.confirmation-info {
+  width: 80%;
+  height: 400px; }
+
+.booking-number {
+  height: 70px;
+  width: 100%;
+  border-bottom: solid 1px #B3E5FC; }
+  .booking-number p {
+    font-size: 20px;
+    margin-bottom: 5px; }
+  .booking-number h1 {
+    color: #03A9F4; }
+
+.information {
+  width: 100%;
+  height: 330px; }
+
+.passenger-info, .flight-information {
+  width: 50%;
+  height: 100%; }
+  .passenger-info .info-header, .flight-information .info-header {
+    height: 20px;
+    text-transform: uppercase;
+    border-bottom: solid 2px #0288D1;
+    margin-top: 15px; }
+
+.flight-information {
+  border-right: solid 1px #B3E5FC; }
+
+.outbound, .inbound {
+  width: 90%;
+  height: 100px;
+  border-top: solid 1px #B3E5FC;
+  border-bottom: solid 1px #B3E5FC;
+  margin-top: 20px; }
+
+.bound-info {
+  color: #4FC3F7;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 5px; }
+
+.passengers {
+  width: 100%;
+  height: 100px;
+  margin-top: 30px; }
