@@ -89,10 +89,23 @@ body{
     padding: 15px;
     margin: 15px 0;
 		font-size: 18px;
+		@include bp-mobile() {
+			flex-direction: column;
+		}
 			.previous-search {
 				@include display-flex();
 				@include justify-content(space-between);
 				width: 400px;
+				@include bp-mobile() {
+					flex-direction: column;
+					max-width: 100%;
+					input{
+						margin: 10px 0;
+					}
+					button{
+						margin: 0 auto;
+					}
+				}
 				input {
 					height: 25px;
 					font-size: 15px;
@@ -112,28 +125,6 @@ body{
 }
 a{
   text-decoration: none;
-}
-
-footer{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  @include justify-content(center);
-  padding-top: 30px;
-  ul{
-    width: 100%;
-    @include justify-content(space-around);
-    display: flex;
-    flex-direction: row;
-    li{
-      list-style: none;
-      text-transform: uppercase;
-    }
-  }
 }
 
 .destinations {
