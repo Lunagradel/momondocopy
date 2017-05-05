@@ -107,9 +107,9 @@
             <span class="prev-from">AMS</span><i class="fa fa-long-arrow-right" aria-hidden="true"></i><span class="prev-to">CPH</span>
           </div>
           <div class="previous-search">
-            <input type="date">
-            <input type="date">
-            <button class="regular-button" type="button" name="submit">Search</button>
+            <input class="new-from-date" type="date">
+            <input class="new-to-date" type="date">
+            <button class="regular-button prev-search" type="button" name="submit">Search</button>
           </div>
         </div>
         <div class="prevFlight card" data-flight-destination="xx">
@@ -183,12 +183,87 @@
         $(".prev-to").append(lastSearch.to);
       });
 
+      $(document).on('click', 'input[type="checkbox"]', function() {
+        $('input[type="checkbox"]').not(this).prop('checked', false);
+
+        var checkboxId = $(this).attr("id");
+
+        if (checkboxId == "one"){
+          choice = {"further":"public"};
+          localeFurther = JSON.stringify(choice);
+          localStorage.furtherTravel = localeFurther;
+        }
+
+        if (checkboxId == "two"){
+          choice = {"further":"taxi"};
+          localeFurther = JSON.stringify(choice);
+          localStorage.furtherTravel = localeFurther;
+        }
+
+
+      });
+
       $(".price-box > button").click(function(event) {
         event.preventDefault();
         window.location.href = 'book.html';
       });
 
       var bSearched = false;
+
+      $(".prev-search").click(function(){
+        $(".return-field").show();
+        var prevFromVal = $(".prev-from").text();
+        var prevToVal = $(".prev-to").text();
+        var newFromDate = $(".new-from-date").val()
+        var newToDate = $(".new-to-date").val()
+        console.log(newFromDate);
+
+        if (newFromDate != "" && newToDate != ""){
+          $(".search-result").removeClass("hidden");
+          $(".previousFlights").addClass("hidden");
+
+          $(".result-from").empty();
+          $(".result-from").append(prevFromVal);
+
+          $(".result-to").empty();
+          $(".result-to").append(prevToVal);
+
+          updateSearch = JSON.parse(localStorage.lastSearch);
+          updateSearch.fromDate = newFromDate;
+          updateSearch.toDate = newToDate;
+          newSearch = JSON.stringify(updateSearch)
+          localStorage.lastSearch = newSearch;
+
+          if (updateSearch.returnValue == "oneway"){
+            $(".return-field").hide();
+          }
+        }
+
+        if (prevToVal == "ALEXANDERPLATZ 22") {
+            var infoToAppend = '<div class="options">\
+              <p class="option-header">Public transport</p>\
+              <div class="transport-info">\
+                <input type="checkbox" id="one">\
+                <p>TXL</p>\
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>\
+                <p>Alexanderplatz 22</p>\
+              </div>\
+            </div>\
+            <div class="options">\
+              <p class="option-header">Taxi</p>\
+              <div><input type="checkbox" id="two"><p>Approximately 20 min by taxi</p></div>\
+            </div>'
+
+            $(".further-info-box").empty();
+            $(".further-info-box").append(infoToAppend);
+            $(".result-to").empty();
+            $(".result-to").append("TLX");
+        } else {
+            $(".further-info-box").empty();
+            $(".further-info-box").append('<p class="need-adress">Search for an adress to see more information</p>');
+        }
+
+      });
 
       $("#goSearch").click(function (event) {
         event.preventDefault();
@@ -234,6 +309,8 @@
 
               $(".further-info-box").empty();
               $(".further-info-box").append(infoToAppend);
+              $(".result-to").empty();
+              $(".result-to").append("TLX");
           } else {
               $(".further-info-box").empty();
               $(".further-info-box").append('<p class="need-adress">Search for an adress to see more information</p>');

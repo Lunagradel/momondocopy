@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>booking done</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="con-wrapper">
+      <h1>BOOKING IS COMPLETED</h1>
+      <div class="confirmation-info card">
+        <div class="booking-number">
+          <p>Your booking number is:</p>
+          <h1>F3L8ZA</h1>
+        </div>
+        <div class="information">
+          <div class="flight-information">
+            <p class="info-header">Flight Information</p>
+            <div class="outbound">
+              <div>
+                <p>FROM</p>
+                <p class="bound-info from-info">CPH</p>
+              </div>
+              <div>
+                <p>TO</p>
+                <p class="bound-info to-info">TXL</p>
+              </div>
+              <div class="plane-info">
+                <p>FLIGHT</p>
+                <p class="bound-info">FA295</p>
+              </div>
+              <div>
+                <p>DATE</p>
+                <p class="bound-info from-date-info">01.02.18</p>
+              </div>
+              <div class="date-info">
+                <p>DEPARTURE</p>
+                <p class="bound-info">11:45</p>
+              </div>
+            </div>
+            <div class="inbound">
+              <div>
+                <p>FROM</p>
+                <p class="bound-info to-info">TXL</p>
+              </div>
+              <div>
+                <p>TO</p>
+                <p class="bound-info from-info">CPH</p>
+              </div>
+              <div class="plane-info">
+                <p>FLIGHT</p>
+                <p class="bound-info">FA810</p>
+              </div>
+              <div>
+                <p>DATE</p>
+                <p class="bound-info to-date-info">05.02.18</p>
+              </div>
+              <div>
+                <p>DEPARTURE</p>
+                <p class="bound-info">08:00</p>
+              </div>
+            </div>
+          </div>
+          <div class="passenger-info">
+            <p class="info-header">Personal Details</p>
+            <div class="passengers">
+              <div class="">
+                <p>NUMBER OF PASSENGERS:</p>
+                <p class="bound-info passenger-number">1</p>
+              </div>
+              <div class="passenger-names">
+                <p>NAME(S):</p>
+                <p class="bound-info passenger-name">BOB EGON</p>
+              </div>
+            </div>
+            <p class="info-header">Further Travel Details</p>
+            <div class="further-travel">
+              <p class="further-travel-info">TEST</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $(".inbound").show();
+          if (localStorage){
+            var flightInfo = JSON.parse(localStorage.lastSearch);
+            var user = JSON.parse(localStorage.user);
+            console.log(flightInfo);
+            $(".from-info").empty();
+            $(".from-info").append(flightInfo.from);
+            $(".from-date-info").empty();
+            $(".from-date-info").append(flightInfo.fromDate);
+            $(".to-date-info").empty();
+            $(".to-date-info").append(flightInfo.toDate);
+            $(".passenger-number").empty();
+            $(".passenger-number").append(flightInfo.passengers);
+            $(".passenger-name").empty();
+            $(".passenger-name").append(user.user.credentials.firstName + " " + user.user.credentials.lastName);
+
+            if (flightInfo.to != "ALEXANDERPLATZ 22"){
+              $(".to-info").empty();
+              $(".to-info").append(flightInfo.to);
+            } else {
+              var furtherTravel = JSON.parse(localStorage.furtherTravel);
+
+              if (furtherTravel.further == "taxi"){
+                $(".further-travel-info").empty().append("A taxi will be waiting for you at the airport.");
+              }
+              if (furtherTravel.further == "public"){
+                $(".further-travel-info").empty().append("A mail with public transport information has been sent to you.");
+              }
+
+
+            }
+
+            if (flightInfo.returnValue == "oneway"){
+              $(".inbound").hide()
+            }
+
+          }
+        })
+    </script>
+  </body>
+</html>
