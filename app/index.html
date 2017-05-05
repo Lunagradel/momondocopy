@@ -20,21 +20,27 @@
       </div>
       <form class="" action="index.html" method="post">
         <div class="">
-          <input class="from" type="text" name="from" placeholder="From" maxlength="3">
-          <i class="fa fa-arrows-h" aria-hidden="true"></i>
-          <input class="to" type="text" name="to" placeholder="To">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input placeholder="From" class="from-date" type="text" name="fromDate" onfocus="(this.type='date')" onblur="(this.type='text')">
-          <!-- <input class="from-date" type="date" name="fromDate" value=""> -->
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <input placeholder="To" class="to-date" type="text" name="toDate" onfocus="(this.type='date')" onblur="(this.type='text')">
-          <!-- <input class="to-date"  type="date" name="toDate" value=""> -->
-          <i class="fa fa-users" aria-hidden="true"></i>
-          <input type="number" class="passengers" name="passengers" value="1">
-          <select class="return" name="returnOneway">
-            <option value="return">Return</option>
-            <option value="oneway">One way</option>
-          </select>
+          <span class="date-span">
+            <input class="from" type="text" name="from" placeholder="From" maxlength="3">
+            <i class="fa fa-arrows-h" aria-hidden="true"></i>
+            <input class="to" type="text" name="to" placeholder="To">
+          </span>
+          <span class="bound-date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <input placeholder="Inbound" class="from-date" type="text" name="fromDate" onfocus="(this.type='date')" onblur="(this.type='text')">
+          </span>
+          <span class="bound-date">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <input placeholder="Outbound" class="to-date" type="text" name="toDate" onfocus="(this.type='date')" onblur="(this.type='text')">
+          </span>
+          <span class="number-return">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <input type="number" class="passengers" name="passengers" value="1">
+            <select class="return" name="returnOneway">
+              <option value="return">Return</option>
+              <option value="oneway">One way</option>
+            </select>
+          </span>
           <button class="regular-button" type="button" name="submit" id="goSearch"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
         </div>
 
@@ -67,16 +73,17 @@
               Company Name: </br>
               <input type="text" name="Company" value="" placeholder="Company Name">
               <div id="creditCard">
-                Credit Card Number:</br>
-                <input type="number" name="cardNr" value="">
-                Expiration Year:</br>
-                <input type="number" name="exYear" value="">
-                Expiration Month:</br>
-                <input type="number" name="exMnth" value="">
-                Cardholder Name:</br>
-                <input type="text" name="cardHolder" value="" placeholder="John Doe">
+                <h3>Payment</h3>
+                Credit Card Number:
+                <input type="number" name="cardNr" value=""></br>
+                Expiration Year:
+                <input type="number" name="exYear" value=""></br>
+                Expiration Month:
+                <input type="number" name="exMnth" value=""></br>
+                Cardholder Name:
+                <input type="text" name="cardHolder" value="" placeholder="John Doe"></br>
               </div>
-              <div type="button" id="submit" class="regular-button" name="submit">Register</div>
+              <div type="button" id="submit" class="overlaybtn regular-button" name="submit">Register</div>
             </form>
         </div>
       </section>
@@ -86,11 +93,11 @@
         <div class="card box-overlay">
           <h3>LOGIN</h3>
           <form class="login">
-            Email:
-            <input type="email" name="loginMail" value="" placeholder="John@doe.com">
-            Password:
-            <input type="Password" name="loginPass" value="">
-            <div type="button" id="login" class="regular-button" value="login" name="button">login</div>
+            <span>
+              <input type="email" name="loginMail" value="" placeholder="Email">
+              <input type="Password" name="loginPass" value="" placeholder="Password">
+            </span>
+            <div type="button" id="login" class="overlaybtn regular-button" value="login" name="button">login</div>
           </form>
         </div>
       </section>

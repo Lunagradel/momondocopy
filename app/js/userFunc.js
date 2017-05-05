@@ -33,14 +33,15 @@ $(document.body).on('click', '.btnUser' , function() {
     var userInfo = JSON.parse(localStorage.user),
         user = userInfo.user.credentials,
         userCredentials = [user.title, user.firstName, user.lastName, user.email, user.bday, user.phone, user.PassNr, user.CompanyName];
-        template = '<span class="account-span-">Title: '+user.title+'</span>\
-                    <span class="account-span-">Fist Name: '+user.firstName+'</span>\
-                    <span class="account-span-">Last Name: '+user.lastName+'</span>\
-                    <span class="account-span-">Email: '+user.email+'</span>\
-                    <span class="account-span-">Birthdate: '+user.bday+'</span>\
-                    <span class="account-span-">Phone: '+user.phone+'</span>\
-                    <span class="account-span-">Passport: '+user.PassNr+'</span>\
-                    <span class="account-span-">Company: '+user.CompanyName+'</span>';
+        template = '<h3>Account Details</h3>\
+                    <span class="account-span-"><strong>Title:</strong> '+user.title+'</span>\
+                    <span class="account-span-"><strong>First name:</strong> '+user.firstName+'</span>\
+                    <span class="account-span-"><strong>Last name:</strong> '+user.lastName+'</span>\
+                    <span class="account-span-"><strong>Email:</strong> '+user.email+'</span>\
+                    <span class="account-span-"><strong>Birthdate:</strong> '+user.bday+'</span>\
+                    <span class="account-span-"><strong>Phone:</strong> '+user.phone+'</span>\
+                    <span class="account-span-"><strong>Passport:</strong> '+user.PassNr+'</span>\
+                    <span class="account-span-"><strong>Company:</strong> '+user.CompanyName+'</span>';
     $("#accountContainer").children(".box-overlay").html(template);
 
   }

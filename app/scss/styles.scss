@@ -31,27 +31,65 @@ body{
   div{
     padding-bottom: 40px;
   }
-	//border-bottom: solid 2px #29B6F6;
   form{
-    // display: flex;
-		// align-items: center;
-		// justify-content: space-between;
-    // @include align-items(center);
-		// @include justify-content(space-between);
-    // position: relative;
     padding: 35px 0 0;
     width: 75vw;
-		@include bp-tablet() {
-
-		}
-    @include bp-mobile() {
-      flex-direction: column;
-      justify-content: center;
-    }
-
 		div {
+			position: relative;
+			margin: 0 auto;
 			@include display-flex();
 			@include align-items(center);
+			@include justify-content(space-between);
+			@include bp-tablet() {
+				flex-direction: column;
+				width: 500px;
+				max-width: 85%;
+				span{
+					width: 100%;
+					text-align: center;
+					padding-bottom: 10px;
+				}
+				.number-return{
+					justify-content: center;
+					.passengers{
+						padding-left: 10px;
+					}
+				}
+			}
+			@include bp-mobile() {
+	      flex-direction: column;
+				width: 500px;
+				max-width: 85%;
+				span{
+					width: 100%;
+					text-align: center;
+					padding-bottom: 10px;
+				}
+				.number-return{
+					justify-content: center;
+				}
+	    }
+			.date-span{
+				min-width: 345px;
+				@include bp-mobile() {
+					min-width: 100%;
+				}
+			}
+			.number-return{
+				@include display-flex();
+				@include align-items(center);
+			}
+			.bound-date{
+				position: relative;
+				input{
+					padding-left: 35px;
+				}
+				.fa{
+					position: absolute;
+					left: 17px;
+					top: 9px;
+				}
+			}
 		}
     input, select{
       margin: 0 5px;
@@ -62,8 +100,13 @@ body{
 			border: solid 1px $btnFontColor;
 			font-family: $mainFont;
 			font-size: 20px;
+			@include bp-tablet() {
+				width: 100%;
+				margin: 2px 0px;
+			}
       @include bp-mobile() {
         margin: 2px 0px;
+				width: 100%;
       }
     }
 		.passengers{
@@ -548,15 +591,6 @@ a{
 	height: 400px;
 	@include display-flex();
 	@include flex-direction(column);
-
-	@include bp-tablet(){
-		width: 95%;
-	}
-
-	@include bp-mobile(){
-		width: 95%;
-		height: 450px;
-	}
 }
 
 .booking-number {
@@ -582,11 +616,6 @@ a{
 	width: 100%;
 	height: 330px;
 	@include display-flex();
-
-	@include bp-mobile(){
-		flex-direction: column;
-		height: 380px;
-	}
 }
 
 .passenger-info, .flight-information {
@@ -602,18 +631,10 @@ a{
 		border-bottom: solid 2px $mainFontColor;
 		margin-top: 15px;
 	}
-
-	@include bp-mobile(){
-		width: 100%;
-		height: 50%;
-	}
 }
 
 .flight-information {
 	border-right: solid 1px $bordercolor;
-	@include bp-mobile(){
-		border:none;
-	}
 }
 
 .outbound, .inbound {
@@ -626,10 +647,6 @@ a{
 	@include align-items(center);
 	margin-top: 20px;
 
-	@include bp-mobile(){
-		width: 98%;
-	}
-
 }
 
 .bound-info {
@@ -637,14 +654,6 @@ a{
 	font-weight: bold;
 	font-size: 25px;
 	margin-top: 5px;
-
-	@include bp-tablet(){
-		font-size: 20px;
-	}
-
-	@include bp-mobile(){
-		font-size: 15px;
-	}
 }
 
 .passengers {
